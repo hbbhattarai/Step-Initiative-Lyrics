@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Initiative - Global Music Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --nepali-color: #e84118;
+            --dzongkha-color: #00a8ff;
+            --english-color: #9c88ff;
+            --primary-dark: #0c2461;
+            --primary-light: #4a69bd;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background Elements */
+        .bg-element {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: -1;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .bg-element-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 5%;
+            background: rgba(232, 65, 24, 0.1);
+            animation-delay: 0s;
+        }
+        
+        .bg-element-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            left: 8%;
+            background: rgba(0, 168, 255, 0.1);
+            animation-delay: 3s;
+        }
+        
+        .bg-element-3 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 20%;
+            background: rgba(156, 136, 255, 0.1);
+            animation-delay: 6s;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 50%, #00d2d3 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 3px solid white;
+            animation: pulse 4s infinite ease-in-out;
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #ff9ff3, #f368e0, #00d2d3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            color: #a4b0be;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ff9ff3, #00d2d3, #54a0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            color: #dfe4ea;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Language Sections */
+        .language-section {
+            margin-bottom: 70px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid;
+        }
+        
+        .nepali-header {
+            border-bottom-color: var(--nepali-color);
+        }
+        
+        .dzongkha-header {
+            border-bottom-color: var(--dzongkha-color);
+        }
+        
+        .english-header {
+            border-bottom-color: var(--english-color);
+        }
+        
+        .section-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 20px;
+            color: white;
+        }
+        
+        .nepali-icon {
+            background: linear-gradient(135deg, var(--nepali-color), #c23616);
+            box-shadow: 0 5px 15px rgba(232, 65, 24, 0.4);
+        }
+        
+        .dzongkha-icon {
+            background: linear-gradient(135deg, var(--dzongkha-color), #0097e6);
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+        }
+        
+        .english-icon {
+            background: linear-gradient(135deg, var(--english-color), #8c7ae6);
+            box-shadow: 0 5px 15px rgba(156, 136, 255, 0.4);
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: white;
+        }
+        
+        .section-subtitle {
+            color: #a4b0be;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+        
+        /* Music Grid */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .music-card {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(5px);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .music-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .music-image {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .music-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .nepali-badge {
+            background: var(--nepali-color);
+        }
+        
+        .dzongkha-badge {
+            background: var(--dzongkha-color);
+        }
+        
+        .english-badge {
+            background: var(--english-color);
+        }
+        
+        .music-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .music-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .music-artist {
+            color: #a4b0be;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .music-desc {
+            color: #dfe4ea;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .play-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(to right, #ff9ff3, #f368e0);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            width: fit-content;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(243, 104, 224, 0.4);
+        }
+        
+        .nepali-btn {
+            background: linear-gradient(to right, var(--nepali-color), #c23616);
+        }
+        
+        .dzongkha-btn {
+            background: linear-gradient(to right, var(--dzongkha-color), #0097e6);
+        }
+        
+        .english-btn {
+            background: linear-gradient(to right, var(--english-color), #8c7ae6);
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #ff9ff3, #00d2d3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #a4b0be;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #a4b0be;
+            margin-top: 40px;
+        }
+        
+        .language-flags {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .flag {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .flag-icon {
+            width: 60px;
+            height: 40px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nepal-flag {
+            background: linear-gradient(to bottom, #dc143c 33%, #003893 33%, #003893 66%, #ffffff 66%);
+        }
+        
+        .bhutan-flag {
+            background: linear-gradient(135deg, #ffd700 50%, #c42127 50%);
+        }
+        
+        .global-flag {
+            background: linear-gradient(135deg, #1e90ff, #00bfff);
+        }
+        
+        .flag-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .music-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .header {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .section-icon {
+                margin-right: 0;
+            }
+            
+            .music-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .music-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-element bg-element-1"></div>
+    <div class="bg-element bg-element-2"></div>
+    <div class="bg-element bg-element-3"></div>
+    
+    <div class="container">
+        <!-- Header with Logo -->
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div>
+                    <div class="logo-text">Step Initiative</div>
+                    <div class="tagline">A Global Music Collection - Nepali, Dzongkha & English</div>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#nepali" class="nav-link active">Nepali</a>
+                <a href="#dzongkha" class="nav-link">Dzongkha</a>
+                <a href="#english" class="nav-link">English</a>
+                <a href="#all" class="nav-link">All Music</a>
+            </nav>
+        </header>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Global Music Collection</h1>
+            <p>Discover a world of musical diversity with our curated collection of songs from Nepal, Bhutan, and beyond. From traditional Nepali wedding songs to Dzongkha folk melodies and English classics, we celebrate the universal language of music across cultures and borders.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+                <a href="#nepali" class="play-btn nepali-btn">
+                    <i class="fas fa-music"></i> Nepali Music
+                </a>
+                <a href="#dzongkha" class="play-btn dzongkha-btn">
+                    <i class="fas fa-mountain"></i> Dzongkha Music
+                </a>
+                <a href="#english" class="play-btn english-btn">
+                    <i class="fas fa-globe"></i> English Music
+                </a>
+            </div>
+        </section>
+        
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Songs Collection</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Languages</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Artists</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Access Anywhere</div>
+            </div>
+        </div>
+        
+        <!-- Nepali Music Section -->
+        <section class="language-section" id="nepali">
+            <div class="section-header nepali-header">
+                <div class="section-icon nepali-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Nepali Music</h2>
+                    <p class="section-subtitle">Traditional and contemporary music from Nepal</p>
+                </div>
+            </div>
+            
+            <div class="music-grid">
+                <!-- Nepali Song 1 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #e84118, #c23616);">
+                        <div class="music-badge nepali-badge">Nepali</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Anjali Jali Jali</h3>
+                        <div class="music-artist">Monika Sharma</div>
+                        <p class="music-desc">A traditional Nepali wedding song capturing the emotions of Kanyadaan ritual with beautiful melodies and poignant lyrics.</p>
+                        <a href="Nepali/song1.html" class="play-btn nepali-btn">
+                            <i class="fas fa-play"></i> View Lyrics
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Nepali Song 2 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+                        <div class="music-badge nepali-badge">Nepali</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Resham Firiri</h3>
+                        <div class="music-artist">Traditional Folk</div>
+                        <p class="music-desc">Classic Nepali folk song that celebrates love and nature, popular in festivals and cultural events across Nepal.</p>
+                        <a href="Nepali/song2.html" class="play-btn nepali-btn">
+                            <i class="fas fa-play"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Nepali Song 3 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #e17055, #d63031);">
+                        <div class="music-badge nepali-badge">Nepali</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Chari Chari Gaadi</h3>
+                        <div class="music-artist">Various Artists</div>
+                        <p class="music-desc">Joyful Nepali children's song with playful lyrics and catchy melody, often sung during festivals and celebrations.</p>
+                        <a href="Nepali/song3.html" class="play-btn nepali-btn">
+                            <i class="fas fa-play"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Dzongkha Music Section -->
+        <section class="language-section" id="dzongkha">
+            <div class="section-header dzongkha-header">
+                <div class="section-icon dzongkha-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Dzongkha Music</h2>
+                    <p class="section-subtitle">Traditional and folk music from Bhutan</p>
+                </div>
+            </div>
+            
+            <div class="music-grid">
+                <!-- Dzongkha Song 1 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #00a8ff, #0097e6);">
+                        <div class="music-badge dzongkha-badge">Dzongkha</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Yoezer Dawa's Melodies</h3>
+                        <div class="music-artist">Traditional Bhutanese</div>
+                        <p class="music-desc">Traditional Dzongkha folk songs that reflect Bhutan's rich cultural heritage and spiritual traditions.</p>
+                        <a href="Dzongkha/song1.html" class="play-btn dzongkha-btn">
+                            <i class="fas fa-play"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Dzongkha Song 2 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #1abc9c, #16a085);">
+                        <div class="music-badge dzongkha-badge">Dzongkha</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Drukpa Folksongs</h3>
+                        <div class="music-artist">Bhutanese Artists</div>
+                        <p class="music-desc">Traditional songs from the Drukpa tradition, celebrating Bhutan's history, culture, and Buddhist heritage.</p>
+                        <a href="Dzongkha/song2.html" class="play-btn dzongkha-btn">
+                            <i class="fas fa-play"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Dzongkha Song 3 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                        <div class="music-badge dzongkha-badge">Dzongkha</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Tashi Delek Songs</h3>
+                        <div class="music-artist">Various Artists</div>
+                        <p class="music-desc">Festive Dzongkha songs traditionally performed during celebrations, festivals, and special occasions.</p>
+                        <a href="Dzongkha/song3.html" class="play-btn dzongkha-btn">
+                            <i class="fas fa-play"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- English Music Section -->
+        <section class="language-section" id="english">
+            <div class="section-header english-header">
+                <div class="section-icon english-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">English Music</h2>
+                    <p class="section-subtitle">Classic and contemporary English songs</p>
+                </div>
+            </div>
+            
+            <div class="music-grid">
+                <!-- English Song 1 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #9c88ff, #8c7ae6);">
+                        <div class="music-badge english-badge">English</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Classic Rock Collection</h3>
+                        <div class="music-artist">Various Artists</div>
+                        <p class="music-desc">Timeless English rock classics from legendary artists that defined generations of music lovers.</p>
+                        <a href="English/song1.html" class="play-btn english-btn">
+                            <i class="fas fa-play"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- English Song 2 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #f368e0, #ff9ff3);">
+                        <div class="music-badge english-badge">English</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Pop Hits 2020s</h3>
+                        <div class="music-artist">Contemporary Artists</div>
+                        <p class="music-desc">Chart-topping English pop songs from the 2020s featuring today's most popular international artists.</p>
+                        <a href="English/song2.html" class="play-btn english-btn">
+                            <i class="fas fa-play"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- English Song 3 -->
+                <div class="music-card">
+                    <div class="music-image" style="background: linear-gradient(135deg, #00d2d3, #54a0ff);">
+                        <div class="music-badge english-badge">English</div>
+                    </div>
+                    <div class="music-content">
+                        <h3 class="music-title">Acoustic Sessions</h3>
+                        <div class="music-artist">Various Artists</div>
+                        <p class="music-desc">Intimate acoustic versions of popular English songs, featuring stripped-down arrangements and raw vocals.</p>
+                        <a href="English/song3.html" class="play-btn english-btn">
+                            <i class="fas fa-play"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="language-flags">
+                <div class="flag">
+                    <div class="flag-icon nepal-flag"></div>
+                    <div class="flag-text">Nepali</div>
+                </div>
+                <div class="flag">
+                    <div class="flag-icon bhutan-flag"></div>
+                    <div class="flag-text">Dzongkha</div>
+                </div>
+                <div class="flag">
+                    <div class="flag-icon global-flag"></div>
+                    <div class="flag-text">English</div>
+                </div>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon" style="background: #1877f2;">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon" style="background: #ff0000;">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" style="background: #1db954;">
+                    <i class="fab fa-spotify"></i>
+                </a>
+                <a href="#" class="social-icon" style="background: #e1306c;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" style="background: #1da1f2;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            
+            <p>© 2023 Step Initiative - Global Music Collection. All rights reserved.</p>
+            <p>Celebrating musical diversity across Nepal, Bhutan, and the world.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #8395a7;">
+                <i class="fas fa-heart" style="color: #ff6b6b;"></i> Music connects us all
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Scroll to target
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add hover effect to music cards
+            const musicCards = document.querySelectorAll('.music-card');
+            musicCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const playBtn = this.querySelector('.play-btn');
+                    if (playBtn) {
+                        playBtn.style.transform = 'scale(1.05)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const playBtn = this.querySelector('.play-btn');
+                    if (playBtn) {
+                        playBtn.style.transform = 'scale(1)';
+                    }
+                });
+            });
+            
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe music cards and sections for animation
+            musicCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Observe language sections
+            document.querySelectorAll('.language-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+            
+            // Update active nav based on scroll position
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY + 150;
+                const sections = ['nepali', 'dzongkha', 'english', 'all'];
+                
+                sections.forEach(sectionId => {
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        const sectionTop = section.offsetTop;
+                        const sectionBottom = sectionTop + section.offsetHeight;
+                        
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                            document.querySelectorAll('.nav-link').forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjali Jali Jali - Kanyadaan Wedding Song</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fffaf3;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(to bottom, #fffaf3, #fff0e6);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ffe8d6;
+        }
+        
+        .decoration {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #f9c5d1 0%, #f999b7 100%);
+            border-bottom-left-radius: 100%;
+            z-index: 0;
+        }
+        
+        .decoration-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #c5efff 0%, #81cfe0 100%);
+            border-top-right-radius: 100%;
+            z-index: 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            color: #c2185b;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            color: #6d214f;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .artist {
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .flower-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0;
+            color: #e84393;
+        }
+        
+        .flower-divider i {
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .flower-divider::before, .flower-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e84393, transparent);
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #6d214f;
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .verse {
+            background-color: #fff9f5;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #c2185b;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .verse:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .verse-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            white-space: pre-line;
+            font-family: 'Georgia', serif;
+        }
+        
+        .verse-number {
+            display: inline-block;
+            background-color: #c2185b;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .music-note {
+            text-align: center;
+            color: #e84393;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            letter-spacing: 5px;
+        }
+        
+        .chorus {
+            background-color: #fff0f5;
+            border-left-color: #e84393;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px dashed #ddd;
+            padding-top: 20px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-print {
+            background-color: #c2185b;
+            color: white;
+        }
+        
+        .btn-print:hover {
+            background-color: #ad1457;
+            transform: translateY(-2px);
+        }
+        
+        .btn-copy {
+            background-color: #6d214f;
+            color: white;
+        }
+        
+        .btn-copy:hover {
+            background-color: #5a1a40;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .verse-content {
+                font-size: 1.1rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 80%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decoration"></div>
+        <div class="decoration-2"></div>
+        
+        <div class="header">
+            <h1>Anjali Jali Jali</h1>
+            <div class="subtitle">A Nepali Wedding Song (Kanyadaan)</div>
+            <div class="artist">Sung by: Monika Sharma</div>
+            
+            <div class="flower-divider">
+                <i class="fas fa-music"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-music"></i>
+            </div>
+        </div>
+        
+        <div class="music-note">♪ ♫ ♪ ♫ ♪</div>
+        
+        <div class="verse">
+            <span class="verse-number">1</span>
+            <div class="verse-content">Anjali jali jali
+Jala hunti naari,
+Istriya ko janwaa khayo
+Jani dyo muraari</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">2</span>
+            <div class="verse-content">Bhitra baata chama chama
+Miri aama auna
+Bhoka peta phuka keshsa
+Kanyadaan dyonna</div>
+        </div>
+        
+        <div class="music-note">♪ ♫ Music Interlude ♫ ♪</div>
+        
+        <div class="verse">
+            <span class="verse-number">3</span>
+            <div class="verse-content">Junko murko
+Phala maako tinko tay odaan
+Chori paai kanyadaan
+Gaai paalay goudaan</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">4</span>
+            <div class="verse-content">Parivaako bhalay poti
+Haaasa ka dimba
+Aajadekhi laayo baaba
+Paraai jimma</div>
+        </div>
+        
+        <div class="music-note">♪ ♫ Music Interlude ♫ ♪</div>
+        
+        <div class="verse">
+            <span class="verse-number">5</span>
+            <div class="verse-content">Ekamuthi chaamaal
+Khusume jolima
+Rodai thiye ni mera baba
+Hali dayu doli ma</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">6</span>
+            <div class="verse-content">Ausiko aadhari raat
+Purnima ko joona
+Daainay haat ko
+Authi saamai
+Baba lagay runa</div>
+        </div>
+        
+        <div class="verse chorus">
+            <span class="verse-number">C</span>
+            <div class="verse-content">Anjali jali jali
+Jalahunti naari
+Istriya ko janwaa khayo
+Jani dyo muraari</div>
+        </div>
+        
+        <div class="music-note">♪ ♫ Music Interlude ♫ ♪</div>
+        
+        <div class="verse">
+            <span class="verse-number">7</span>
+            <div class="verse-content">Daanaai ropane khale gara
+Aali maa ro paumaas
+Chora laai ansa manda
+Chori laai bani baas</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">8</span>
+            <div class="verse-content">Saanaai dekhi paalyo aama
+Khokro hallaai hallaai
+Chori umer pumke paachchi
+Dinchho kallaai kallaai</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">9</span>
+            <div class="verse-content">Saate bhaai choraa laai
+Yahi ghar ma atayo
+Auti chori thiya baaba
+Saat dhara khatayo</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">10</span>
+            <div class="verse-content">Biyaan auothi aago phook ne
+Phala maako sote
+Chalii maiti chhuti aune
+Yahi aryo pote</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">11</span>
+            <div class="verse-content">Anjaali jali jaali
+Jalahunti naari
+Istriya ko janwaa khayo
+Janidyo muraare</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">12</span>
+            <div class="verse-content">Paani paaryo paaryo
+Autai teera taryo
+Baaba mero auchho bhandhe
+Aase paani maryo</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">13</span>
+            <div class="verse-content">Bhaate paakne bharu bhaara
+Tehun paakne karaai
+Ye jasamma maaiti gharmaa
+Aaja bhaya parai</div>
+        </div>
+        
+        <div class="music-note">♪ ♫ Music Interlude ♫ ♪</div>
+        
+        <div class="verse">
+            <span class="verse-number">14</span>
+            <div class="verse-content">Bhaanai authi
+Gha sai katay
+Khatikay sitaima
+Aru bela na samjheni
+Samjhenu ti jaima</div>
+        </div>
+        
+        <div class="verse">
+            <span class="verse-number">15</span>
+            <div class="verse-content">Saanu saanu gailai
+Ghaila maa ma pani bharula
+Na rau na rau mera baba
+Ma audhi garula</div>
+        </div>
+        
+        <div class="verse chorus">
+            <span class="verse-number">F</span>
+            <div class="verse-content">Anjali jali jaali
+Jalahunti naari
+Istriya ko janwaa khayo
+Jhanidyo muraari
+
+Bhitra baata chama chama
+Miri aama auna
+Hhoka peta pukakesha
+Kanyadaan dyonna</div>
+        </div>
+        
+        <div class="music-note">♪ ♫ Music Fades Out... ♫ ♪</div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-print" onclick="window.print()">
+                <i class="fas fa-print"></i> Print Lyrics
+            </button>
+            <button class="btn btn-copy" id="copyBtn">
+                <i class="far fa-copy"></i> Copy to Clipboard
+            </button>
+        </div>
+        
+        <div class="footer">
+            <p>✨ Formatted with love for weddings, memories, and traditions. ✨</p>
+            <p>All spelling corrections have been applied as requested.</p>
+            <p>Save this page as an HTML file to keep this beautiful format.</p>
+        </div>
+    </div>
+
+    <script>
+        // Copy lyrics to clipboard functionality
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            // Get all verse content
+            const verses = document.querySelectorAll('.verse-content');
+            let lyricsText = "Anjali Jali Jali - Kanyadaan Wedding Song\n";
+            lyricsText += "Sung by: Monika Sharma\n\n";
+            
+            verses.forEach((verse, index) => {
+                lyricsText += verse.textContent + "\n\n";
+            });
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(lyricsText).then(function() {
+                const originalText = document.getElementById('copyBtn').innerHTML;
+                document.getElementById('copyBtn').innerHTML = '<i class="fas fa-check"></i> Copied!';
+                document.getElementById('copyBtn').style.backgroundColor = '#2ecc71';
+                
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    document.getElementById('copyBtn').innerHTML = originalText;
+                    document.getElementById('copyBtn').style.backgroundColor = '#6d214f';
+                }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+                alert('Could not copy lyrics to clipboard. Please try again.');
+            });
+        });
+        
+        // Add visual feedback when hovering over verses
+        const verses = document.querySelectorAll('.verse');
+        verses.forEach(verse => {
+            verse.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
+            });
+            
+            verse.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
