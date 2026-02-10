@@ -7,315 +7,212 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma;}
 :root{
     --nepali:#e84118;
     --dzongkha:#00a8ff;
     --english:#9c88ff;
 }
-
 body{
     background:linear-gradient(135deg,#0c2461,#1e3799,#4a69bd);
     color:white;
-    min-height:100vh;
-    overflow-x:hidden;
 }
+.container{max-width:1400px;margin:auto;padding:20px}
 
-/* floating bg */
-.bg-element{
-    position:fixed;
-    border-radius:50%;
-    z-index:-1;
-    animation:float 15s infinite ease-in-out;
-}
-.bg-element-1{
-    width:280px;height:280px;
-    top:8%;right:5%;
-    background:rgba(232,65,24,0.15);
-}
-.bg-element-2{
-    width:200px;height:200px;
-    bottom:10%;left:5%;
-    background:rgba(0,168,255,0.15);
-}
-.bg-element-3{
-    width:150px;height:150px;
-    top:55%;right:20%;
-    background:rgba(156,136,255,0.15);
-}
-
-.container{
-    max-width:1400px;
-    margin:auto;
-    padding:20px;
-}
+/* BACKGROUND */
+.bg{position:fixed;border-radius:50%;z-index:-1;animation:float 15s infinite}
+.bg1{width:300px;height:300px;top:5%;right:5%;background:rgba(232,65,24,.15)}
+.bg2{width:220px;height:220px;bottom:10%;left:5%;background:rgba(0,168,255,.15)}
+.bg3{width:160px;height:160px;top:55%;right:20%;background:rgba(156,136,255,.15)}
 
 /* HEADER */
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 0;
-    border-bottom:1px solid rgba(255,255,255,.2);
-}
-
-.logo-container{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-/* FINAL CIRCULAR LOGO */
+.header{display:flex;align-items:center;gap:15px;padding:25px 0;border-bottom:1px solid rgba(255,255,255,.2)}
 .logo{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#ff9ff3,#f368e0,#00d2d3);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    border:3px solid white;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
-    animation:pulse 4s infinite;
+    width:80px;height:80px;border-radius:50%;
+    background:linear-gradient(135deg,#ff9ff3,#00d2d3);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;border:3px solid white;
 }
-.logo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:50%;
-}
-
-.logo-text{
-    font-size:2.2rem;
-    font-weight:700;
-    background:linear-gradient(to right,#ff9ff3,#00d2d3);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-.tagline{
-    font-size:.95rem;
-    color:#a4b0be;
-}
+.logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.logo-text{font-size:2.2rem;font-weight:700;background:linear-gradient(to right,#ff9ff3,#00d2d3);-webkit-background-clip:text;color:transparent}
+.tagline{color:#a4b0be}
 
 /* HERO */
 .hero{
-    text-align:center;
-    padding:60px 40px;
-    background:rgba(0,0,0,.3);
-    border-radius:25px;
-    margin:60px 0;
-    backdrop-filter:blur(10px);
+    text-align:center;padding:60px 30px;margin:50px 0;
+    background:rgba(0,0,0,.3);border-radius:25px
 }
-.hero h1{
-    font-size:3.2rem;
-    background:linear-gradient(to right,#ff9ff3,#00d2d3);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-.hero p{
-    max-width:900px;
-    margin:20px auto;
-    color:#dfe4ea;
-    line-height:1.7;
-}
+.hero h1{font-size:3rem;background:linear-gradient(to right,#ff9ff3,#00d2d3);-webkit-background-clip:text;color:transparent}
+.hero p{max-width:900px;margin:20px auto;color:#dfe4ea}
 
 /* BUTTON */
-.play-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:12px 26px;
-    border-radius:50px;
-    color:white;
-    font-weight:600;
-    text-decoration:none;
-    transition:.3s;
-    min-height:44px;
+.btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 26px;border-radius:50px;
+    color:white;text-decoration:none;font-weight:600;
+    transition:.3s
 }
-.play-btn:hover{
-    transform:scale(1.05);
-}
-.nepali-btn{background:linear-gradient(to right,var(--nepali),#c23616);}
-.dzongkha-btn{background:linear-gradient(to right,var(--dzongkha),#0097e6);}
-.english-btn{background:linear-gradient(to right,var(--english),#8c7ae6);}
+.btn:hover{transform:scale(1.05)}
+.nepali-btn{background:linear-gradient(to right,var(--nepali),#c23616)}
+.dzongkha-btn{background:linear-gradient(to right,var(--dzongkha),#0097e6)}
+.english-btn{background:linear-gradient(to right,var(--english),#8c7ae6)}
 
-/* STATS */
-.stats{
-    display:flex;
-    justify-content:space-around;
-    background:rgba(0,0,0,.25);
-    padding:40px;
-    border-radius:20px;
-    margin-bottom:60px;
-    flex-wrap:wrap;
-    gap:25px;
+/* SECTION */
+.section{margin-bottom:80px}
+.section-header{display:flex;align-items:center;gap:20px;margin-bottom:35px}
+.icon{
+    width:70px;height:70px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:1.8rem
 }
-.stat-number{
-    font-size:2.6rem;
-    background:linear-gradient(to right,#ff9ff3,#00d2d3);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-.stat-label{color:#a4b0be;}
+.nepali-icon{background:var(--nepali)}
+.dzongkha-icon{background:var(--dzongkha)}
+.english-icon{background:var(--english)}
 
-/* LANGUAGE SECTION */
-.language-section{
-    margin-bottom:70px;
-    padding:30px;
-    background:rgba(255,255,255,.05);
-    border-radius:20px;
-}
-
-.section-header{
-    display:flex;
-    align-items:center;
-    gap:20px;
-    margin-bottom:40px;
-}
-.section-icon{
-    width:70px;height:70px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.8rem;
-}
-.nepali-icon{background:var(--nepali);}
-.dzongkha-icon{background:var(--dzongkha);}
-.english-icon{background:var(--english);}
-
-/* GRID */
-.music-grid{
+.grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:28px;
+    gap:28px
 }
 
 /* CARD */
-.music-card{
+.card{
     background:rgba(255,255,255,.1);
-    border-radius:18px;
-    overflow:hidden;
-    backdrop-filter:blur(12px);
+    border-radius:18px;overflow:hidden;
     box-shadow:0 10px 30px rgba(0,0,0,.35);
-    transition:.4s;
-    opacity:0;
-    transform:translateY(30px);
+    transition:.4s
 }
-.music-card:hover{
-    transform:translateY(-12px) scale(1.01);
-    box-shadow:0 25px 45px rgba(0,0,0,.5);
+.card:hover{transform:translateY(-10px)}
+.card-img{height:200px;position:relative}
+.card-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.6))
 }
-.music-image{
-    height:200px;
-    position:relative;
+.badge{
+    position:absolute;top:15px;right:15px;
+    padding:6px 14px;border-radius:20px;font-size:.8rem
 }
-.music-image::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.6));
-}
-.music-badge{
-    position:absolute;
-    top:15px;right:15px;
-    padding:6px 14px;
-    border-radius:20px;
-    font-size:.8rem;
-    font-weight:600;
-}
-.nepali-badge{background:var(--nepali);}
-.dzongkha-badge{background:var(--dzongkha);}
-.english-badge{background:var(--english);}
-
-.music-content{
-    padding:25px;
-}
-.music-title{font-size:1.4rem;}
-.music-artist{color:#a4b0be;margin:8px 0;}
-.music-desc{font-size:.95rem;color:#dfe4ea;margin-bottom:20px;}
+.card-body{padding:25px}
+.card-body h3{font-size:1.4rem}
+.artist{color:#a4b0be;margin:8px 0}
+.desc{font-size:.95rem;color:#dfe4ea;margin-bottom:20px}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-    .header{flex-direction:column;text-align:center;}
-    .logo-container{flex-direction:column;}
-    .hero h1{font-size:2.1rem;}
-    .stats{flex-direction:column;}
-}
-@media(max-width:480px){
-    .hero{padding:40px 20px;}
-    .section-header{flex-direction:column;text-align:center;}
+    .header{flex-direction:column;text-align:center}
+    .hero h1{font-size:2.2rem}
 }
 
 @keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-20px);}
-}
-@keyframes pulse{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.05);}
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-20px)}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg-element bg-element-1"></div>
-<div class="bg-element bg-element-2"></div>
-<div class="bg-element bg-element-3"></div>
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
 
 <div class="container">
 
 <header class="header">
-    <div class="logo-container">
-        <div class="logo">
-            <img src="./logo.png" alt="Step Initiative Logo">
-        </div>
-        <div>
-            <div class="logo-text">Step Initiative</div>
-            <div class="tagline">A Global Music Collection</div>
-        </div>
+    <div class="logo"><img src="./logo.png"></div>
+    <div>
+        <div class="logo-text">Step Initiative</div>
+        <div class="tagline">A Global Music Collection</div>
     </div>
 </header>
 
 <section class="hero">
     <h1>Global Music Collection</h1>
-    <p>Discover Nepali, Dzongkha and English music celebrating culture, tradition and global harmony.</p>
-    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
-        <a href="#nepali" class="play-btn nepali-btn"><i class="fas fa-music"></i> Nepali</a>
-        <a href="#dzongkha" class="play-btn dzongkha-btn"><i class="fas fa-mountain"></i> Dzongkha</a>
-        <a href="#english" class="play-btn english-btn"><i class="fas fa-globe"></i> English</a>
+    <p>Explore traditional and modern music from Nepal, Bhutan, and the global stage.</p>
+    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+        <a href="#nepali" class="btn nepali-btn">Nepali</a>
+        <a href="#dzongkha" class="btn dzongkha-btn">Dzongkha</a>
+        <a href="#english" class="btn english-btn">English</a>
     </div>
 </section>
 
-<div class="stats">
-    <div><div class="stat-number">150+</div><div class="stat-label">Songs</div></div>
-    <div><div class="stat-number">3</div><div class="stat-label">Languages</div></div>
-    <div><div class="stat-number">50+</div><div class="stat-label">Artists</div></div>
-    <div><div class="stat-number">24/7</div><div class="stat-label">Access</div></div>
+<!-- NEPALI -->
+<section class="section" id="nepali">
+<div class="section-header">
+    <div class="icon nepali-icon"><i class="fas fa-music"></i></div>
+    <h2>Nepali Music</h2>
 </div>
 
+<div class="grid">
+<div class="card">
+<div class="card-img" style="background:linear-gradient(135deg,#e84118,#c23616)">
+<span class="badge nepali-btn">Nepali</span>
+</div>
+<div class="card-body">
+<h3>Anjali Jali Jali</h3>
+<div class="artist">Monika Sharma</div>
+<p class="desc">Traditional Nepali wedding song.</p>
+<a href="Nepali/song1.html" class="btn nepali-btn">View Lyrics</a>
+</div>
 </div>
 
-<script>
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting){
-            e.target.style.opacity=1;
-            e.target.style.transform="translateY(0)";
-        }
-    })
-},{threshold:.1});
+<div class="card">
+<div class="card-img" style="background:linear-gradient(135deg,#8e44ad,#9b59b6)">
+<span class="badge nepali-btn">Nepali</span>
+</div>
+<div class="card-body">
+<h3>Resham Firiri</h3>
+<div class="artist">Traditional Folk</div>
+<p class="desc">Classic Nepali folk song.</p>
+<a href="Nepali/song2.html" class="btn nepali-btn">View Lyrics</a>
+</div>
+</div>
+</div>
+</section>
 
-document.querySelectorAll('.music-card').forEach(c=>observer.observe(c));
-</script>
+<!-- DZONGKHA -->
+<section class="section" id="dzongkha">
+<div class="section-header">
+    <div class="icon dzongkha-icon"><i class="fas fa-mountain"></i></div>
+    <h2>Dzongkha Music</h2>
+</div>
 
+<div class="grid">
+<div class="card">
+<div class="card-img" style="background:linear-gradient(135deg,#00a8ff,#0097e6)">
+<span class="badge dzongkha-btn">Dzongkha</span>
+</div>
+<div class="card-body">
+<h3>Yoezer Dawa</h3>
+<div class="artist">Bhutanese Folk</div>
+<p class="desc">Traditional Dzongkha melodies.</p>
+<a href="Dzongkha/song1.html" class="btn dzongkha-btn">View Lyrics</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ENGLISH -->
+<section class="section" id="english">
+<div class="section-header">
+    <div class="icon english-icon"><i class="fas fa-globe"></i></div>
+    <h2>English Music</h2>
+</div>
+
+<div class="grid">
+<div class="card">
+<div class="card-img" style="background:linear-gradient(135deg,#9c88ff,#8c7ae6)">
+<span class="badge english-btn">English</span>
+</div>
+<div class="card-body">
+<h3>Classic Rock</h3>
+<div class="artist">Various Artists</div>
+<p class="desc">Timeless English rock hits.</p>
+<a href="English/song1.html" class="btn english-btn">View Lyrics</a>
+</div>
+</div>
+</div>
+</section>
+
+</div>
 </body>
 </html>
