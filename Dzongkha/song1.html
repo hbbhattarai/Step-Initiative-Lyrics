@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wongdho Wongdho - Bhutanese Song Lyrics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --bhutan-orange: #FF4E00;
+            --bhutan-yellow: #FFCC00;
+            --bhutan-dark: #000000;
+            --mountain-green: #2E8B57;
+            --text-light: #f8f9fa;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Bhutanese Pattern Background */
+        .dragon-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,20 C60,10 80,10 90,20 C100,30 100,50 90,60 C80,70 60,70 50,60 C40,70 20,70 10,60 C0,50 0,30 10,20 C20,10 40,10 50,20 Z" fill="none" stroke="rgba(255,78,0,0.05)" stroke-width="1"/></svg>');
+            background-size: 200px 200px;
+            z-index: -2;
+            opacity: 0.3;
+        }
+        
+        .mountain-bg {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, rgba(46, 139, 87, 0.1), transparent);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+            position: relative;
+        }
+        
+        .bhutan-flag {
+            display: inline-block;
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFCC00 50%, #FF4E00 50%);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bhutan-flag::after {
+            content: '༄';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--bhutan-yellow);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #aaa;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .post-date {
+            display: inline-block;
+            background: rgba(255, 78, 0, 0.2);
+            color: var(--bhutan-yellow);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 78, 0, 0.3);
+        }
+        
+        /* Lyrics Container */
+        .lyrics-container {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 78, 0, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lyrics-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--bhutan-orange), var(--bhutan-yellow));
+        }
+        
+        /* Lyrics Content */
+        .lyrics-content {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            white-space: pre-line;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .lyrics-line {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .lyrics-line::before {
+            content: '♪';
+            position: absolute;
+            left: 0;
+            color: var(--bhutan-yellow);
+            font-size: 0.9rem;
+        }
+        
+        .chorus-section {
+            background: rgba(255, 78, 0, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid var(--bhutan-yellow);
+        }
+        
+        .chorus-label {
+            display: inline-block;
+            background: var(--bhutan-orange);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            background: rgba(40, 40, 60, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 204, 0, 0.1);
+        }
+        
+        .comments-title {
+            color: var(--bhutan-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comment {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--mountain-green);
+        }
+        
+        .comment-author {
+            color: var(--bhutan-yellow);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comment-date {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        
+        .comment-text {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        .sign-in-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border: 2px dashed rgba(255, 78, 0, 0.3);
+            margin-top: 30px;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        
+        .btn-print {
+            background: linear-gradient(to right, var(--bhutan-orange), #cc3d00);
+            color: white;
+        }
+        
+        .btn-print:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 78, 0, 0.3);
+        }
+        
+        .btn-listen {
+            background: linear-gradient(to right, var(--bhutan-yellow), #e6b800);
+            color: #333;
+        }
+        
+        .btn-listen:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 204, 0, 0.3);
+        }
+        
+        .btn-share {
+            background: linear-gradient(to right, var(--mountain-green), #267349);
+            color: white;
+        }
+        
+        .btn-share:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(46, 139, 87, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0 30px;
+            color: #888;
+            border-top: 1px solid rgba(255, 78, 0, 0.2);
+            margin-top: 40px;
+        }
+        
+        .dzongkha-text {
+            font-size: 1.5rem;
+            color: var(--bhutan-yellow);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .lyrics-container {
+                padding: 25px 20px;
+            }
+            
+            .lyrics-content {
+                font-size: 1.1rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="dragon-pattern"></div>
+    <div class="mountain-bg"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in">
+            <div class="bhutan-flag"></div>
+            <h1>Wongdho Wongdho</h1>
+            <div class="subtitle">Bhutanese Folk Song</div>
+            <div class="post-date">
+                <i class="far fa-calendar-alt"></i> Thursday, December 3, 2015
+            </div>
+        </header>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons fade-in">
+            <button class="btn btn-print" onclick="window.print()">
+                <i class="fas fa-print"></i> Print Lyrics
+            </button>
+            <a href="https://www.youtube.com/results?search_query=Wongdho+Wongdho+Bhutanese+song" target="_blank" class="btn btn-listen">
+                <i class="fab fa-youtube"></i> Listen on YouTube
+            </a>
+            <button class="btn btn-share" onclick="shareLyrics()">
+                <i class="fas fa-share-alt"></i> Share Lyrics
+            </button>
+        </div>
+        
+        <!-- Lyrics Container -->
+        <div class="lyrics-container fade-in">
+            <div class="lyrics-content">
+                <div class="lyrics-line">Nga lu ga way say</div>
+                <div class="lyrics-line">Bhum choe gi lab chi</div>
+                <div class="lyrics-line">Nga dha dhae ne say</div>
+                <div class="lyrics-line">Kha tsei choe ge zhaei</div>
+                <div class="lyrics-line">Chab chi chab ru nga</div>
+                <div class="lyrics-line">Bhum choe lu gu dhi</div>
+                <div class="lyrics-line">Gawei pang na choe dha nga</div>
+                <div class="lyrics-line">Dhi ngee ngelam emaae</div>
+                
+                <div class="chorus-section">
+                    <div class="chorus-label">Chorus</div>
+                    <div class="lyrics-line">Dha wongdho wongdho lab bae</div>
+                    <div class="lyrics-line">Bhum choe nam ya wongni me</div>
+                    <div class="lyrics-line">Cho le lu ra gu dhi yea</div>
+                    <div class="lyrics-line">Dha chow maew thee mae</div>
+                    <div class="lyrics-line">Cho le tadhi ngge ge sem</div>
+                    <div class="lyrics-line">Ngelam zum gi dhue tse na</div>
+                </div>
+                
+                <div class="lyrics-line">Bhu nga me ba me cha say</div>
+                <div class="lyrics-line">Bhum choe gi lab chi</div>
+                <div class="lyrics-line">Nge lam na ya thom na say</div>
+                <div class="lyrics-line">Namkoe dhuh saay lab chi</div>
+                <div class="lyrics-line">Me gi bumra em ba chin</div>
+                <div class="lyrics-line">Lodhi buh nga bae sa sho</div>
+                <div class="lyrics-line">Lhayui semo em ba chin</div>
+                <div class="lyrics-line">Gachi lungtem ema mo</div>
+                
+                <div class="chorus-section">
+                    <div class="chorus-label">Chorus</div>
+                    <div class="lyrics-line">Dha wongdho wongdho lab bae</div>
+                    <div class="lyrics-line">Bhum choe nam ya wongni me</div>
+                    <div class="lyrics-line">Cho le lu ra gu dhi yea</div>
+                    <div class="lyrics-line">Dha chow maew thee mae</div>
+                    <div class="lyrics-line">Cho le tadhi ngge ge sem</div>
+                    <div class="lyrics-line">Ngelam zum gi dhue tse na</div>
+                </div>
+                
+                <div class="chorus-section">
+                    <div class="chorus-label">Final Chorus</div>
+                    <div class="lyrics-line">Dha wongdho wongdho lab bae</div>
+                    <div class="lyrics-line">Bhum choe nam ya wongni me</div>
+                    <div class="lyrics-line">Cho le lu ra gu dhi yea</div>
+                    <div class="lyrics-line">Dha chow maew thee mae</div>
+                    <div class="lyrics-line">Cho le tadhi ngge ge sem</div>
+                    <div class="lyrics-line">Ngelam zum gi dhue tse na</div>
+                </div>
+            </div>
+            
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h3 class="comments-title">
+                    <i class="far fa-comments"></i> Comments (2)
+                </h3>
+                
+                <div class="comment">
+                    <div class="comment-author">
+                        <i class="fas fa-user"></i> The Lyrics Nepal
+                    </div>
+                    <div class="comment-date">May 3, 2020 at 9:07 PM</div>
+                    <div class="comment-text">Awesome Bhutanese Lyrics.</div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-author">
+                        <i class="fas fa-user"></i> Unknown
+                    </div>
+                    <div class="comment-date">November 1, 2021 at 9:17 PM</div>
+                    <div class="comment-text">It is a fantastic song</div>
+                </div>
+                
+                <div class="sign-in-box">
+                    <p>To leave a comment, click the button below to sign in with Google.</p>
+                    <button class="btn" style="background: #4285F4; color: white; margin-top: 15px;">
+                        <i class="fab fa-google"></i> Sign In With Google
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer fade-in">
+            <div class="dzongkha-text">༄ གངས་ཅན་མཁའ་འོག་གི་གླུ་དབྱངས།</div>
+            <p>Bhutanese Music Collection | Preserving Himalayan Cultural Heritage</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                Lyrics sourced from Bhutanese folk tradition | © All rights reserved to cultural custodians
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click effect to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+            
+            // Animate lyrics lines on scroll
+            const lyricsLines = document.querySelectorAll('.lyrics-line');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            lyricsLines.forEach(line => {
+                line.style.opacity = '0';
+                line.style.transform = 'translateX(-20px)';
+                line.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(line);
+            });
+        });
+        
+        // Share functionality
+        function shareLyrics() {
+            const songTitle = "Wongdho Wongdho - Bhutanese Song";
+            const lyricsUrl = window.location.href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: songTitle,
+                    text: 'Check out these Bhutanese song lyrics',
+                    url: lyricsUrl
+                })
+                .catch(error => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareText = `${songTitle}\n\n${lyricsUrl}`;
+                navigator.clipboard.writeText(shareText)
+                    .then(() => {
+                        alert('Link copied to clipboard!');
+                    })
+                    .catch(err => {
+                        console.error('Could not copy text: ', err);
+                    });
+            }
+        }
+        
+        // Print functionality
+        window.addEventListener('beforeprint', () => {
+            document.body.style.background = 'white';
+            document.querySelector('.lyrics-container').style.background = 'white';
+            document.querySelector('.lyrics-container').style.color = 'black';
+        });
+        
+        window.addEventListener('afterprint', () => {
+            document.body.style.background = '';
+            document.querySelector('.lyrics-container').style.background = '';
+            document.querySelector('.lyrics-container').style.color = '';
+        });
+    </script>
+</body>
+</html>
