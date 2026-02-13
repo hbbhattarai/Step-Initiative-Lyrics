@@ -1,114 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Step Initiative - Global Music Collection</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Initiative - Global Music Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma;}
+        :root{
+            --nepali:#e84118;
+            --dzongkha:#00a8ff;
+            --english:#9c88ff;
+        }
+        body{
+            background:linear-gradient(135deg,#0c2461,#1e3799,#4a69bd);
+            color:white;
+        }
+        .container{max-width:1400px;margin:auto;padding:20px}
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma;}
-:root{
-    --nepali:#e84118;
-    --dzongkha:#00a8ff;
-    --english:#9c88ff;
-}
-body{
-    background:linear-gradient(135deg,#0c2461,#1e3799,#4a69bd);
-    color:white;
-}
-.container{max-width:1400px;margin:auto;padding:20px}
+        /* BACKGROUND */
+        .bg{position:fixed;border-radius:50%;z-index:-1;animation:float 15s infinite}
+        .bg1{width:300px;height:300px;top:5%;right:5%;background:rgba(232,65,24,.15)}
+        .bg2{width:220px;height:220px;bottom:10%;left:5%;background:rgba(0,168,255,.15)}
+        .bg3{width:160px;height:160px;top:55%;right:20%;background:rgba(156,136,255,.15)}
 
-/* BACKGROUND */
-.bg{position:fixed;border-radius:50%;z-index:-1;animation:float 15s infinite}
-.bg1{width:300px;height:300px;top:5%;right:5%;background:rgba(232,65,24,.15)}
-.bg2{width:220px;height:220px;bottom:10%;left:5%;background:rgba(0,168,255,.15)}
-.bg3{width:160px;height:160px;top:55%;right:20%;background:rgba(156,136,255,.15)}
+        /* HEADER */
+        .header{display:flex;align-items:center;gap:15px;padding:25px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+        .logo{
+            width:80px;height:80px;border-radius:50%;
+            background:linear-gradient(135deg,#ff9ff3,#00d2d3);
+            display:flex;align-items:center;justify-content:center;
+            overflow:hidden;border:3px solid white;
+        }
+        .logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+        .logo-text{font-size:2.2rem;font-weight:700;background:linear-gradient(to right,#ff9ff3,#00d2d3);-webkit-background-clip:text;color:transparent}
+        .tagline{color:#a4b0be}
 
-/* HEADER */
-.header{display:flex;align-items:center;gap:15px;padding:25px 0;border-bottom:1px solid rgba(255,255,255,.2)}
-.logo{
-    width:80px;height:80px;border-radius:50%;
-    background:linear-gradient(135deg,#ff9ff3,#00d2d3);
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;border:3px solid white;
-}
-.logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.logo-text{font-size:2.2rem;font-weight:700;background:linear-gradient(to right,#ff9ff3,#00d2d3);-webkit-background-clip:text;color:transparent}
-.tagline{color:#a4b0be}
+        /* HERO */
+        .hero{
+            text-align:center;padding:60px 30px;margin:50px 0;
+            background:rgba(0,0,0,.3);border-radius:25px
+        }
+        .hero h1{font-size:3rem;background:linear-gradient(to right,#ff9ff3,#00d2d3);-webkit-background-clip:text;color:transparent}
+        .hero p{max-width:900px;margin:20px auto;color:#dfe4ea}
 
-/* HERO */
-.hero{
-    text-align:center;padding:60px 30px;margin:50px 0;
-    background:rgba(0,0,0,.3);border-radius:25px
-}
-.hero h1{font-size:3rem;background:linear-gradient(to right,#ff9ff3,#00d2d3);-webkit-background-clip:text;color:transparent}
-.hero p{max-width:900px;margin:20px auto;color:#dfe4ea}
+        /* BUTTON */
+        .btn{
+            display:inline-flex;align-items:center;gap:8px;
+            padding:12px 26px;border-radius:50px;
+            color:white;text-decoration:none;font-weight:600;
+            transition:.3s
+        }
+        .btn:hover{transform:scale(1.05)}
+        .nepali-btn{background:linear-gradient(to right,var(--nepali),#c23616)}
+        .dzongkha-btn{background:linear-gradient(to right,var(--dzongkha),#0097e6)}
+        .english-btn{background:linear-gradient(to right,var(--english),#8c7ae6)}
 
-/* BUTTON */
-.btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:12px 26px;border-radius:50px;
-    color:white;text-decoration:none;font-weight:600;
-    transition:.3s
-}
-.btn:hover{transform:scale(1.05)}
-.nepali-btn{background:linear-gradient(to right,var(--nepali),#c23616)}
-.dzongkha-btn{background:linear-gradient(to right,var(--dzongkha),#0097e6)}
-.english-btn{background:linear-gradient(to right,var(--english),#8c7ae6)}
+        /* SECTION */
+        .section{margin-bottom:80px}
+        .section-header{display:flex;align-items:center;gap:20px;margin-bottom:35px}
+        .icon{
+            width:70px;height:70px;border-radius:50%;
+            display:flex;align-items:center;justify-content:center;font-size:1.8rem
+        }
+        .nepali-icon{background:var(--nepali)}
+        .dzongkha-icon{background:var(--dzongkha)}
+        .english-icon{background:var(--english)}
 
-/* SECTION */
-.section{margin-bottom:80px}
-.section-header{display:flex;align-items:center;gap:20px;margin-bottom:35px}
-.icon{
-    width:70px;height:70px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-size:1.8rem
-}
-.nepali-icon{background:var(--nepali)}
-.dzongkha-icon{background:var(--dzongkha)}
-.english-icon{background:var(--english)}
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:28px
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:28px
-}
+        /* CARD */
+        .card{
+            background:rgba(255,255,255,.1);
+            border-radius:18px;overflow:hidden;
+            box-shadow:0 10px 30px rgba(0,0,0,.35);
+            transition:.4s
+        }
+        .card:hover{transform:translateY(-10px)}
+        .card-img{height:200px;position:relative}
+        .card-img::after{
+            content:"";position:absolute;inset:0;
+            background:linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.6))
+        }
+        .badge{
+            position:absolute;top:15px;right:15px;
+            padding:6px 14px;border-radius:20px;font-size:.8rem
+        }
+        .card-body{padding:25px}
+        .card-body h3{font-size:1.4rem}
+        .artist{color:#a4b0be;margin:8px 0}
+        .desc{font-size:.95rem;color:#dfe4ea;margin-bottom:20px}
 
-/* CARD */
-.card{
-    background:rgba(255,255,255,.1);
-    border-radius:18px;overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-    transition:.4s
-}
-.card:hover{transform:translateY(-10px)}
-.card-img{height:200px;position:relative}
-.card-img::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.6))
-}
-.badge{
-    position:absolute;top:15px;right:15px;
-    padding:6px 14px;border-radius:20px;font-size:.8rem
-}
-.card-body{padding:25px}
-.card-body h3{font-size:1.4rem}
-.artist{color:#a4b0be;margin:8px 0}
-.desc{font-size:.95rem;color:#dfe4ea;margin-bottom:20px}
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            .header{flex-direction:column;text-align:center}
+            .hero h1{font-size:2.2rem}
+        }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    .header{flex-direction:column;text-align:center}
-    .hero h1{font-size:2.2rem}
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-20px)}
-}
-</style>
+        @keyframes float{
+            0%,100%{transform:translateY(0)}
+            50%{transform:translateY(-20px)}
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="bg bg1"></div>
@@ -118,7 +116,7 @@ body{
 <div class="container">
 
 <header class="header">
-    <div class="logo"><img src="./logo.png"></div>
+    <div class="logo"><img src="./logo.png" alt="Step Initiative Logo"></div>
     <div>
         <div class="logo-text">Step Initiative</div>
         <div class="tagline">A Global Music Collection</div>
@@ -135,7 +133,7 @@ body{
     </div>
 </section>
 
-<!-- NEPALI -->
+<!-- NEPALI SECTION (with new song added) -->
 <section class="section" id="nepali">
 <div class="section-header">
     <div class="icon nepali-icon"><i class="fas fa-music"></i></div>
@@ -143,33 +141,49 @@ body{
 </div>
 
 <div class="grid">
-<div class="card">
-<div class="card-img" style="background:linear-gradient(135deg,#e84118,#c23616)">
-<span class="badge nepali-btn">Nepali</span>
-</div>
-<div class="card-body">
-<h3>Anjali Jali Jali</h3>
-<div class="artist">Monika Sharma</div>
-<p class="desc">Traditional Nepali wedding song.</p>
-<a href="Nepali/song1.html" class="btn nepali-btn">View Lyrics</a>
-</div>
-</div>
+    <!-- Existing first card (Anjali Jali Jali) - completely unchanged -->
+    <div class="card">
+        <div class="card-img" style="background:linear-gradient(135deg,#e84118,#c23616)">
+            <span class="badge nepali-btn">Nepali</span>
+        </div>
+        <div class="card-body">
+            <h3>Anjali Jali Jali</h3>
+            <div class="artist">Monika Sharma</div>
+            <p class="desc">Traditional Nepali wedding song.</p>
+            <a href="Nepali/song1.html" class="btn nepali-btn">View Lyrics</a>
+        </div>
+    </div>
 
-<div class="card">
-<div class="card-img" style="background:linear-gradient(135deg,#8e44ad,#9b59b6)">
-<span class="badge nepali-btn">Nepali</span>
-</div>
-<div class="card-body">
-<h3>Hridhya Ma Krishna Ko Photo Chha</h3>
-<div class="artist">Nepali Bhajan</div>
-<p class="desc">A traditional Nepali devotional song.</p>
-<a href="Nepali/song2.html" class="btn nepali-btn">View Lyrics</a>
-</div>
-</div>
+    <!-- NEW CARD: हुन्न धर्म बा आमा भुलेर (Durga Oli) - added as second card -->
+    <div class="card">
+        <div class="card-img" style="background:linear-gradient(135deg,#e84118,#8e44ad)">
+            <span class="badge nepali-btn">Nepali Bhajan</span>
+        </div>
+        <div class="card-body">
+            <h3>हुन्न धर्म बा आमा भुलेर</h3>
+            <div class="artist">Durga Oli</div>
+            <p class="desc">New Nepali bhajan – "It's not right to roam temples, forgetting the gods at home, mother and father."</p>
+            <!-- Link directly to zong3.html as requested -->
+            <a href="zong3.html" class="btn nepali-btn">View Lyrics</a>
+        </div>
+    </div>
+
+    <!-- Existing second card (Hridhya Ma Krishna Ko Photo Chha) - now third card, but content unchanged -->
+    <div class="card">
+        <div class="card-img" style="background:linear-gradient(135deg,#8e44ad,#9b59b6)">
+            <span class="badge nepali-btn">Nepali</span>
+        </div>
+        <div class="card-body">
+            <h3>Hridhya Ma Krishna Ko Photo Chha</h3>
+            <div class="artist">Nepali Bhajan</div>
+            <p class="desc">A traditional Nepali devotional song.</p>
+            <a href="Nepali/song2.html" class="btn nepali-btn">View Lyrics</a>
+        </div>
+    </div>
 </div>
 </section>
 
-<!-- DZONGKHA -->
+<!-- DZONGKHA SECTION (completely unchanged) -->
 <section class="section" id="dzongkha">
 <div class="section-header">
     <div class="icon dzongkha-icon"><i class="fas fa-mountain"></i></div>
@@ -177,21 +191,21 @@ body{
 </div>
 
 <div class="grid">
-<div class="card">
-<div class="card-img" style="background:linear-gradient(135deg,#00a8ff,#0097e6)">
-<span class="badge dzongkha-btn">Dzongkha</span>
-</div>
-<div class="card-body">
-<h3>Wongdo Wongdo</h3>
-<div class="artist">Bhutanese Pop</div>
-<p class="desc">Traditional Dzongkha melodies.</p>
-<a href="Dzongkha/song1.html" class="btn dzongkha-btn">View Lyrics</a>
-</div>
-</div>
+    <div class="card">
+        <div class="card-img" style="background:linear-gradient(135deg,#00a8ff,#0097e6)">
+            <span class="badge dzongkha-btn">Dzongkha</span>
+        </div>
+        <div class="card-body">
+            <h3>Wongdo Wongdo</h3>
+            <div class="artist">Bhutanese Pop</div>
+            <p class="desc">Traditional Dzongkha melodies.</p>
+            <a href="Dzongkha/song1.html" class="btn dzongkha-btn">View Lyrics</a>
+        </div>
+    </div>
 </div>
 </section>
 
-<!-- ENGLISH -->
+<!-- ENGLISH SECTION (completely unchanged) -->
 <section class="section" id="english">
 <div class="section-header">
     <div class="icon english-icon"><i class="fas fa-globe"></i></div>
@@ -199,20 +213,20 @@ body{
 </div>
 
 <div class="grid">
-<div class="card">
-<div class="card-img" style="background:linear-gradient(135deg,#9c88ff,#8c7ae6)">
-<span class="badge english-btn">English</span>
-</div>
-<div class="card-body">
-<h3>Classic Rock</h3>
-<div class="artist">Various Artists</div>
-<p class="desc">Timeless English rock hits.</p>
-<a href="English/song1.html" class="btn english-btn">View Lyrics</a>
-</div>
-</div>
+    <div class="card">
+        <div class="card-img" style="background:linear-gradient(135deg,#9c88ff,#8c7ae6)">
+            <span class="badge english-btn">English</span>
+        </div>
+        <div class="card-body">
+            <h3>Classic Rock</h3>
+            <div class="artist">Various Artists</div>
+            <p class="desc">Timeless English rock hits.</p>
+            <a href="English/song1.html" class="btn english-btn">View Lyrics</a>
+        </div>
+    </div>
 </div>
 </section>
 
-</div>
+</div> <!-- container end -->
 </body>
 </html>

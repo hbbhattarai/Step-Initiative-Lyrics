@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हुन्न धर्म · बा आमा भुलेर — bhajan design</title>
+    <!-- google fonts for devanagari & latin elegance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    <!-- font awesome 6 (free) for subtle icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fbf7f0 0%, #f5efe3 100%);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            color: #2e2a28;
+        }
+
+        .bhajan-card {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 253, 250, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 3rem 1.5rem 3rem 1.5rem;
+            box-shadow: 0 25px 45px -12px rgba(60, 40, 20, 0.25),
+                        0 2px 8px rgba(0,0,0,0.03),
+                        inset 0 1px 0 #fff9ee;
+            border: 1px solid rgba(230, 210, 190, 0.3);
+            overflow: hidden;
+            padding: 2.8rem 2.2rem;
+            transition: all 0.2s ease;
+        }
+
+        /* decorative border */
+        .bhajan-card {
+            position: relative;
+        }
+        .bhajan-card::before {
+            content: "☸︎";
+            font-size: 1.8rem;
+            color: #b86b2f;
+            opacity: 0.15;
+            position: absolute;
+            bottom: 1rem;
+            right: 2rem;
+            transform: rotate(12deg);
+            pointer-events: none;
+        }
+        .bhajan-card::after {
+            content: "";
+            position: absolute;
+            top: 1.5rem;
+            left: 2rem;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #e7cfb5 0%, transparent 70%);
+            opacity: 0.3;
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            line-height: 1.3;
+            font-weight: 500;
+            font-family: 'Tiro Devanagari Sanskrit', 'Inter', serif;
+            color: #653b1c;
+            letter-spacing: 1px;
+            word-spacing: 4px;
+            text-shadow: 2px 2px 0 rgba(240, 215, 180, 0.4);
+        }
+
+        .header h2 {
+            font-size: 1.5rem;
+            font-weight: 350;
+            color: #8b6d4b;
+            margin-top: 0.5rem;
+            border-bottom: 1px dashed #d8bea0;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .singer {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #a77c5a;
+            background: #efe3d6;
+            display: inline-block;
+            padding: 0.3rem 1.8rem;
+            border-radius: 40px;
+            box-shadow: inset 0 1px 4px #ffe3ca;
+            font-weight: 400;
+        }
+        .singer i {
+            margin-right: 8px;
+            color: #c2742b;
+        }
+
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2.5rem 0 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .col {
+            flex: 1 1 280px;
+            background: rgba(252, 246, 238, 0.7);
+            border-radius: 1.8rem 0.8rem 1.8rem 0.8rem;
+            padding: 1.6rem 1.6rem 2rem 1.6rem;
+            border: 1px solid #ebdad0;
+            box-shadow: 0 10px 20px -8px rgba(100, 70, 40, 0.12);
+            transition: transform 0.2s;
+        }
+        .col:hover {
+            transform: translateY(-4px);
+            border-color: #dbbd9f;
+        }
+
+        .col-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #4d3a28;
+            margin-bottom: 1.8rem;
+            border-left: 6px solid #b8875a;
+            padding-left: 1rem;
+            background: linear-gradient(to right, #faeeda, transparent);
+        }
+        .col-header i {
+            color: #a5662b;
+            font-size: 1.4rem;
+        }
+
+        .lyric-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .stanza {
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dotted #dacbbc;
+        }
+        .stanza:last-child {
+            border-bottom: none;
+        }
+
+        .line-nep {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 1.25rem;
+            line-height: 1.9;
+            color: #2b1f15;
+            font-weight: 400;
+            word-break: break-word;
+        }
+
+        .line-eng {
+            font-size: 1rem;
+            color: #5f4e3d;
+            margin-top: 0.3rem;
+            padding-left: 0.3rem;
+            border-left: 3px solid #e3c7ae;
+            padding-left: 0.8rem;
+            font-weight: 350;
+            letter-spacing: 0.01rem;
+        }
+
+        .music-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            background: #e8d7c4;
+            color: #694e31;
+            border-radius: 20px;
+            padding: 0.15rem 1rem;
+            margin: 0.2rem 0 0.4rem;
+            width: fit-content;
+            border: 1px solid #cfb99f;
+            font-style: italic;
+        }
+        .music-tag i {
+            font-size: 0.75rem;
+            margin-right: 6px;
+            color: #9b6a3b;
+        }
+
+        .refrain {
+            background: #f5eadc;
+            border-radius: 1rem 0.4rem 1rem 0.4rem;
+            padding: 0.8rem 1.2rem;
+            margin: 0.8rem 0;
+            border-left: 4px solid #bd8b5a;
+            font-weight: 400;
+        }
+        .refrain .line-nep {
+            font-size: 1.2rem;
+            color: #502f15;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+            color: #8e755b;
+            border-top: 2px solid #eddac8;
+            padding-top: 1.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-note span i {
+            color: #bf7b41;
+            margin-right: 5px;
+        }
+
+        .button-icon {
+            background: none;
+            border: 1px solid #d8b894;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            color: #7d5d3f;
+            font-size: 0.9rem;
+            transition: 0.15s;
+        }
+        .button-icon:hover {
+            background: #dac09f;
+            color: #2d1b0c;
+            border-color: #a46f3b;
+        }
+
+        @media (max-width: 650px) {
+            .bhajan-card {
+                padding: 1.8rem 1rem;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .col-header {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* small extra charm */
+        .deco-dip {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            opacity: 0.4;
+            font-size: 1.2rem;
+            color: #b48c65;
+            margin: 0.8rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="bhajan-card">
+        <div class="header">
+            <h1>हुन्न धर्म बा आमा भुलेर</h1>
+            <h2>Hunna Dharma Ba Ama Bhuler</h2>
+            <div class="singer">
+                <i class="fas fa-microphone-alt"></i> Durga Oli
+            </div>
+            <div class="deco-dip">
+                <i class="fa-regular fa-circle"></i> <i class="fa-regular fa-circle"></i> <i class="fa-regular fa-circle"></i>
+            </div>
+        </div>
+
+        <!-- main bilingual columns -->
+        <div class="columns">
+            <!-- left: transliteration (english letters) -->
+            <div class="col">
+                <div class="col-header">
+                    <i class="fas fa-language"></i> 
+                    <span>transliteration</span>
+                </div>
+                <div class="lyric-block">
+
+                    <!-- verse 1 -->
+                    <div class="stanza">
+                        <div class="music-tag"><i class="fas fa-music"></i> [music]</div>
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                    </div>
+
+                    <!-- verse 2 (ama) -->
+                    <div class="stanza">
+                        <div class="music-tag"><i class="fas fa-music"></i> [music]</div>
+                        <div class="line-nep">Ama hamrai janani hun, babu nai rama,</div>
+                        <div class="line-nep">Yi dubailaai ruwaaune garnu hunna kaam.</div>
+                    </div>
+
+                    <!-- refrain repeated -->
+                    <div class="refrain">
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                    </div>
+
+                    <!-- verse 3: nau nau mahina -->
+                    <div class="stanza">
+                        <div class="music-tag"><i class="fas fa-music"></i> [music]</div>
+                        <div class="line-nep">Nau nau mahina kokhma raakhi, janma dine ama,</div>
+                        <div class="line-nep">Palana poshan karma dine baba unai rama.</div>
+                    </div>
+                    <div class="refrain">
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                    </div>
+
+                    <!-- verse 4: mero babu naani -->
+                    <div class="stanza">
+                        <div class="music-tag"><i class="fas fa-music"></i> [music]</div>
+                        <div class="line-nep">Mero babu naani bhandai, paaila tekaaune laai,</div>
+                        <div class="line-nep">Dudh dhaara dudh pilaai, sansaar dekhhaaune laai.</div>
+                    </div>
+                    <div class="refrain">
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                    </div>
+
+                    <!-- verse 5: kasle bujhnu -->
+                    <div class="stanza">
+                        <div class="music-tag"><i class="fas fa-music"></i> [music]</div>
+                        <div class="line-nep">Kasle bujhnu sakchha ra, khai vidhaatako khela?</div>
+                        <div class="line-nep">Yasta ishwar ghar bhitrai chan, tara garchhan bhela.</div>
+                    </div>
+                    <div class="refrain">
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                    </div>
+
+                    <!-- verse 6: santankai lagi -->
+                    <div class="stanza">
+                        <div class="music-tag"><i class="fas fa-music"></i> [music]</div>
+                        <div class="line-nep">Santankai lagi bhandai, jeevan sukhae,</div>
+                        <div class="line-nep">Santanko lagi aafna pir betha lukae.</div>
+                    </div>
+                    <div class="refrain">
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                        <div class="line-nep">Hunna dharma mandirma duler,</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                        <div class="line-nep">Gharaka deuta ba ama bhuler.</div>
+                    </div>
+                    <div class="music-tag"><i class="fas fa-music"></i> [music – instrumental]</div>
+                </div>
+            </div>
+
+            <!-- right: english translation -->
+            <div class="col">
+                <div class="col-header">
+                    <i class="fas fa-book-open"></i>
+                    <span>translation</span>
+                </div>
+                <div class="lyric-block">
+
+                    <div class="stanza">
+                        <div class="line-eng"><i class="fa-regular fa-note-sticky"></i> It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                        <div class="line-eng">It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                    </div>
+
+                    <div class="stanza">
+                        <div class="line-eng">Mother is our birth giver, and father, indeed,</div>
+                        <div class="line-eng">It is not a good deed to make both of them cry.</div>
+                    </div>
+
+                    <div class="refrain" style="background:#f2e2d2;">
+                        <div class="line-eng">It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                        <div class="line-eng">It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                    </div>
+
+                    <div class="stanza">
+                        <div class="line-eng">The mother who kept us in her womb for nine months and gave us birth,</div>
+                        <div class="line-eng">The father who provided upbringing, nourishment, and taught us our duties.</div>
+                    </div>
+                    <div class="refrain" style="background:#f2e2d2;">
+                        <div class="line-eng">It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                    </div>
+
+                    <div class="stanza">
+                        <div class="line-eng">To the one who said "my baby, my child" and taught us to take our first steps,</div>
+                        <div class="line-eng">Who fed us milk and showed us the world.</div>
+                    </div>
+                    <div class="refrain" style="background:#f2e2d2;">
+                        <div class="line-eng">It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                    </div>
+
+                    <div class="stanza">
+                        <div class="line-eng">Who can really understand the play of destiny?</div>
+                        <div class="line-eng">Such gods (parents) are right inside the house, yet people gather elsewhere.</div>
+                    </div>
+                    <div class="refrain" style="background:#f2e2d2;">
+                        <div class="line-eng">It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                    </div>
+
+                    <div class="stanza">
+                        <div class="line-eng">Saying "for the sake of our children," they dried up their lives,</div>
+                        <div class="line-eng">For the sake of their children, they hid their own worries and pains.</div>
+                    </div>
+                    <div class="refrain" style="background:#f2e2d2;">
+                        <div class="line-eng">It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                        <div class="line-eng">It's not right to roam temples,</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                        <div class="line-eng">Forgetting the gods at home, mother and father.</div>
+                    </div>
+                    <div class="line-eng" style="margin-top:1rem; font-style:italic; opacity:0.8;">♫ instrumental closing ♫</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer with youtube context / source -->
+        <div class="footer-note">
+            <span><i class="fab fa-youtube"></i> based on tactiq.io transcript · Durga Oli</span>
+            <span class="button-icon"><i class="fa-regular fa-heart"></i> बा आमा भुलेर</span>
+            <span><i class="fa-regular fa-clock"></i> Nepali bhajan · 2026</span>
+        </div>
+
+        <!-- small credit (transcription & translation) -->
+        <div style="text-align: right; margin-top: 1.2rem; font-size: 0.85rem; color: #b29174; border-top: 1px dashed #eedbcb; padding-top: 1rem;">
+            <i class="fa-regular fa-pen-to-square"></i> transliteration & design · english rendering 
+        </div>
+    </div>
+</body>
+</html>
