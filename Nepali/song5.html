@@ -3,333 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>नेपाली भजन · पागल जस्तै छु म त (चिन्ने / नचिन्ने)</title>
+    <title>पागल जस्तै छु म त – नेपाली भजन (4 Stanza Final)</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            background: #f2e4d2;
-            background-image: linear-gradient(145deg, #f9eede 0%, #eedcc7 100%);
-            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #1e2a3a;
+            background: linear-gradient(145deg, #1b2535, #212e42);
+            font-family: 'Segoe UI', 'Georgia', 'Times New Roman', serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 2rem 1rem;
+            align-items: center;
             min-height: 100vh;
+            padding: 2rem 1rem;
         }
-        .container {
-            max-width: 750px;
+        .lyric-card {
+            max-width: 800px;
             width: 100%;
-            margin: 0 auto;
+            background: #fdfbf6;
+            border-radius: 48px 48px 30px 30px;
+            box-shadow: 0 30px 45px -10px #000000cc, 0 0 0 2px #c8a27b40;
+            padding: 2.8rem 2.4rem;
+            border-left: 8px solid #d97c2b;
         }
-        .bhajan-card {
-            background: #fffcf3;
-            border-radius: 60px 60px 30px 30px;
-            box-shadow: 0 30px 45px rgba(100, 60, 20, 0.3);
-            border: 2px solid #e0b585;
-            padding: 2.5rem 2rem;
-            margin-bottom: 2.5rem;
+        .title-section {
+            margin-bottom: 2.2rem;
+            border-bottom: 3px double #b45f27;
+            padding-bottom: 1rem;
         }
-        .title {
-            font-size: 2.2rem;
+        .title-main {
+            font-size: 2.4rem;
             font-weight: 700;
-            color: #6b3f1b;
-            text-align: center;
-            line-height: 1.3;
-            border-bottom: 3px double #c1935b;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.2rem;
-            word-spacing: 2px;
+            color: #9f4519;
+            line-height: 1.2;
+            text-shadow: 2px 2px 0 #ffe1b3;
         }
-        .title span {
+        .title-main span {
             display: block;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 400;
-            color: #9e6937;
-            margin-top: 8px;
+            color: #bd6a34;
+            margin-top: 6px;
             font-style: italic;
         }
-        .subh {
-            text-align: center;
-            font-size: 1.15rem;
-            background: #fae1bb;
-            padding: 0.3rem 1.2rem;
-            border-radius: 40px;
+        .sub-artist {
             display: inline-block;
-            margin-bottom: 1.8rem;
-            color: #452d17;
-            border: 1px solid #bb8b53;
+            background: #d8823b;
+            color: white;
+            padding: 0.3rem 2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            border: 2px solid #f5ba7e;
         }
         .stanza {
-            margin: 2.3rem 0 2rem 0;
-            background: #ffffffd4;
-            border-radius: 40px 40px 30px 30px;
-            padding: 1.6rem 2rem 1rem 2rem;
-            box-shadow: inset 0 1px 5px #ffe7c4, 0 6px 10px #e9cdad;
+            margin: 2.5rem 0 2rem 0;
+            background: #fffbf2;
+            border-radius: 30px 30px 30px 15px;
+            padding: 1.8rem 2.2rem 1.2rem 2.2rem;
+            box-shadow: 0 6px 12px #cdb69c, inset 0 0 0 1px #ffe9cf;
         }
         .stanza-header {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            background: #ab6f3b;
+            background: #a75826;
             color: white;
             display: inline-block;
-            padding: 0.25rem 2rem;
-            border-radius: 30px;
-            margin-bottom: 1.1rem;
+            padding: 0.2rem 2.2rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
             letter-spacing: 1px;
-            border: 1px solid #dba05e;
+            border: 1px solid #e5a15b;
             transform: translateY(-1rem);
         }
         .line {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             line-height: 2.2rem;
-            color: #2d1c0c;
-            font-weight: 450;
-            padding-left: 0.8rem;
-            margin-bottom: 0.2rem;
-            font-family: 'Courier New', 'Segoe UI', monospace;
-            border-left: 3px solid transparent;
+            color: #241a0f;
+            font-weight: 460;
+            padding-left: 1rem;
+            font-family: 'Courier New', 'Segoe UI', 'Kokila', monospace;
+            border-left: 4px solid transparent;
+            margin-bottom: 0.1rem;
         }
         .line:hover {
-            border-left-color: #c0712e;
-            background: #ffeacb;
+            border-left-color: #b95412;
+            background: #fff2e0;
             border-radius: 0 20px 20px 0;
-        }
-        .refrain {
-            font-size: 1.3rem;
-            color: #9f4d17;
-            margin: 1.1rem 0 0.5rem 0;
-            padding-left: 1.5rem;
-            border-left: 6px solid #dc973b;
-            background: #faeedb;
-            padding: 0.4rem 1.2rem 0.4rem 2rem;
-            border-radius: 0 40px 40px 0;
-            width: fit-content;
-        }
-        .glossary-mini {
-            margin-top: 2rem;
-            background: #efe2cf;
-            border-radius: 30px;
-            padding: 1.2rem 1.8rem;
-            border: 2px solid #c69964;
-        }
-        .glossary-mini h4 {
-            font-size: 1.3rem;
-            color: #3e2a14;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 0.6rem;
-        }
-        .word-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem 1.8rem;
-        }
-        .word-item {
-            background: #fff0dc;
-            padding: 0.3rem 1.2rem;
-            border-radius: 30px;
-            font-size: 1.05rem;
-            border: 1px solid #c48b4b;
-            color: #2f1e0e;
-        }
-        .word-item strong {
-            color: #9e501d;
-            margin-right: 5px;
         }
         .footer-note {
             text-align: center;
-            margin-top: 1.5rem;
+            margin-top: 2.5rem;
+            color: #a76331;
+            border-top: 2px dashed #b97a48;
+            padding-top: 1.5rem;
             font-size: 1rem;
-            color: #74593a;
-            border-top: 1px dashed #b58955;
-            padding-top: 1rem;
         }
-        .dev-toggle {
-            display: inline-block;
-            background: #e5cfb3;
-            padding: 0.25rem 1rem;
+        .small-note {
+            background: #f0d2b2;
             border-radius: 30px;
-            color: #4f321a;
+            padding: 0.2rem 1.5rem;
+            display: inline-block;
+            color: #3e2a18;
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+        }
+        .meaning-box {
+            background: #eadac5;
+            border-radius: 30px;
+            padding: 1.2rem 1.8rem;
+            margin-top: 2rem;
+        }
+        .meaning-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            justify-content: center;
+        }
+        .meaning-item {
+            background: #fff1e0;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            border: 1px solid #b87e45;
+        }
+        .meaning-item strong {
+            color: #9f4f1a;
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
-<div class="container">
+<div class="lyric-card">
 
-    <!-- ========== भजन १ : पागल जस्तै छु म त (चिन्ने/नचिन्ने) ========== -->
-    <div class="bhajan-card">
-        <div class="title">
+    <div class="title-section">
+        <div class="title-main">
             पागल जस्तै छु म त
-            <span>Pagal Jastai Chhu Ma Ta (चिन्ने / नचिन्ने)</span>
+            <span>Pagal Jastai Chhu Ma Ta</span>
         </div>
-        <div class="subh">✧ गोपाल योञ्जन / गोपाल बास्नेत समूह ✧</div>
-
-        <!-- first stanza -->
-        <div class="stanza">
-            <div class="stanza-header">१</div>
-            <div class="line">Pagal jastai chhu ma ta,</div>
-            <div class="line">Pagal jastai chhu.</div>
-            <div class="line">Pagal jastai chhu ma ta,</div>
-            <div class="line">Pagal jastai chhu.</div>
-        </div>
-
-        <!-- second stanza (core line: chinne lai / nachinne lai) -->
-        <div class="stanza">
-            <div class="stanza-header">२</div>
-            <div class="line"><strong>Chinne lai Ram Bhakta,</strong></div>
-            <div class="line"><strong>Nachinne lai pagal.</strong></div>
-            <div class="line"><strong>Chinne lai Ram Bhakta,</strong></div>
-            <div class="line"><strong>Nachinne lai pagal.</strong></div>
-            <div class="refrain">Pagal jastai chhu ma ta, pagal jastai chhu.</div>
-        </div>
-
-        <!-- third stanza -->
-        <div class="stanza">
-            <div class="stanza-header">३</div>
-            <div class="line">Haase pani bhanchhan sabai le,</div>
-            <div class="line">Haastai hidchha pagal jastai.</div>
-            <div class="line">Royo bhanchhan pagal jastai,</div>
-            <div class="line">Royo bhanchhan pagal jastai.</div>
-        </div>
-
-        <!-- fourth stanza : repeat chinne/nachine -->
-        <div class="stanza">
-            <div class="stanza-header">४</div>
-            <div class="line">Chinne lai Ram Bhakta,</div>
-            <div class="line">Nachinne lai pagal.</div>
-            <div class="line">Chinne lai Ram Bhakta,</div>
-            <div class="line">Nachinne lai pagal.</div>
-            <div class="refrain">Pagal jastai chhu ma ta, pagal jastai chhu.</div>
-        </div>
-
-        <!-- fifth stanza -->
-        <div class="stanza">
-            <div class="stanza-header">५</div>
-            <div class="line">Sansar lai ke thaha mero man ko byatha,</div>
-            <div class="line">Sansar lai ke thaha mero man ko byatha.</div>
-            <div class="line">Timilai ta thacha chaina, timi nai chhau mero,</div>
-            <div class="line">Timilai ta thacha chaina, timi nai chhau mero.</div>
-        </div>
-
-        <!-- sixth stanza : haase royō -->
-        <div class="stanza">
-            <div class="stanza-header">६</div>
-            <div class="line">Haase pani bhanchhan sabai le,</div>
-            <div class="line">Haastai hidchha pagal jastai.</div>
-            <div class="line">Royo bhanchhan pagal jastai,</div>
-            <div class="line">Royo bhanchhan pagal jastai.</div>
-        </div>
-
-        <!-- seventh stanza : final chinne/nachine + refrain -->
-        <div class="stanza">
-            <div class="stanza-header">७</div>
-            <div class="line">Chinne lai Ram Bhakta,</div>
-            <div class="line">Nachinne lai pagal.</div>
-            <div class="line">Chinne lai Ram Bhakta,</div>
-            <div class="line">Nachinne lai pagal.</div>
-            <div class="refrain">Pagal jastai chhu ma ta, pagal jastai chhu.</div>
-            <div class="line" style="margin-top:8px;">Pagal jastai chhu ma ta, pagal jastai chhu.</div>
-        </div>
-
-        <!-- mini glossary for this bhajan -->
-        <div class="glossary-mini">
-            <h4>📖 सजिलो अर्थ · simple meanings</h4>
-            <div class="word-grid">
-                <span class="word-item"><strong>Chinne</strong> one who knows</span>
-                <span class="word-item"><strong>Nachinne</strong> one who doesn't know</span>
-                <span class="word-item"><strong>Ram Bhakta</strong> devotee of Ram</span>
-                <span class="word-item"><strong>Pagal</strong> mad / crazy</span>
-                <span class="word-item"><strong>Haase</strong> when/if I laugh</span>
-                <span class="word-item"><strong>Royo</strong> when/if I cry</span>
-                <span class="word-item"><strong>Byatha</strong> pain</span>
-                <span class="word-item"><strong>Thacha chaina</strong> (you) know</span>
-            </div>
-            <div class="dev-toggle">✧ चिन्ने / नचिन्ने (corrected) ✧</div>
-        </div>
-        <div class="footer-note">— भजन • पागल जस्तै छु म त —</div>
+        <div class="sub-artist">🎤 चिन्नेलाई राम भक्त, नचिन्नेलाई पागल</div>
+        <div class="small-note" style="margin-top:10px;">✧ ४ भजन · 4 Stanzas Final ✧</div>
     </div>
 
-    <!-- ========== भजन २ : मिलिजुली गाउँ अरती हरिको (केवल भजन) ========== -->
-    <div class="bhajan-card" style="margin-top: 1.2rem;">
-        <div class="title">
-            मिलिजुली गाउँ अरती हरिको
-            <span>Milijuli Ghauhn Arrati Hari Ko</span>
-        </div>
-        <div class="subh">✧ only bhajan · lyrics in English letters ✧</div>
-
-        <!-- first stanza -->
-        <div class="stanza">
-            <div class="stanza-header">❶</div>
-            <div class="line">Milijuli ghauhn arrati Hari ko,</div>
-            <div class="line">Milijuli ghauhn arrati.</div>
-            <div class="line">Deen dayala mero man basiyo,</div>
-            <div class="line">Timi bina ko arrati.</div>
-            <div class="refrain">(Milijuli ghauhn arrati Hari ko...)</div>
-        </div>
-
-        <!-- second stanza -->
-        <div class="stanza">
-            <div class="stanza-header">❷</div>
-            <div class="line">Gyanako deep prajwalit garauhn,</div>
-            <div class="line">Prem sugandhit dhoop.</div>
-            <div class="line">Bhaaw bhakti le sajauhn thali,</div>
-            <div class="line">Hridaya kamal ko roop.</div>
-            <div class="refrain">(Milijuli ghauhn arrati Hari ko...)</div>
-        </div>
-
-        <!-- third stanza -->
-        <div class="stanza">
-            <div class="stanza-header">❸</div>
-            <div class="line">Shankha ghanta ra mridanga baja,</div>
-            <div class="line">Baje koili tara.</div>
-            <div class="line">Dev dev Hari aajai aunu,</div>
-            <div class="line">Darshan dinu hamra.</div>
-            <div class="refrain">(Milijuli ghauhn arrati Hari ko...)</div>
-        </div>
-
-        <!-- fourth stanza -->
-        <div class="stanza">
-            <div class="stanza-header">❹</div>
-            <div class="line">Chandan chola laal chadhauhnla,</div>
-            <div class="line">Phool mala shringar.</div>
-            <div class="line">Arrati gaey harshit bhaey,</div>
-            <div class="line">Bho yo bhakti ko bhandar.</div>
-            <div class="refrain">(Milijuli ghauhn arrati Hari ko...)</div>
-        </div>
-
-        <!-- fifth stanza -->
-        <div class="stanza">
-            <div class="stanza-header">❺</div>
-            <div class="line">Shata shata naman chhati bhari pranam,</div>
-            <div class="line">Yahi ho vinay hamiro.</div>
-            <div class="line">Rakhyo jo jodi charan timro,</div>
-            <div class="line">Rinai chha rina timro.</div>
-            <div class="refrain">(Milijuli ghauhn arrati Hari ko...)</div>
-        </div>
-
-        <!-- small glossary for key words (aarti) -->
-        <div class="glossary-mini">
-            <h4>📖 शब्द अर्थ · key words</h4>
-            <div class="word-grid">
-                <span class="word-item"><strong>Milijuli</strong> together</span>
-                <span class="word-item"><strong>Ghauhn</strong> to sing</span>
-                <span class="word-item"><strong>Arrati</strong> light offering</span>
-                <span class="word-item"><strong>Hari</strong> Lord Vishnu</span>
-                <span class="word-item"><strong>Bhakti</strong> devotion</span>
-                <span class="word-item"><strong>Darshan</strong> divine sight</span>
-            </div>
-        </div>
-        <div class="footer-note">— शुद्ध भजन अंश मात्र —</div>
+    <!-- Stanza 1 -->
+    <div class="stanza">
+        <div class="stanza-header">१</div>
+        <div class="line">Pagal jastai chhu ma ta,</div>
+        <div class="line">Pagal jastai chhu.</div>
+        <div class="line">Pagal jastai chhu ma ta,</div>
+        <div class="line">Pagal jastai chhu.</div>
+        <div class="line">Chinne lai Ram Bhakta,</div>
+        <div class="line">Nachinne lai pagal.</div>
+        <div class="line">Chinne lai Ram Bhakta,</div>
+        <div class="line">Nachinne lai pagal jasti chu.</div>
     </div>
 
-    <!-- small footer for both -->
-    <div style="text-align: center; margin: 1.2rem 0; color: #5f4a32; font-style: italic;">
-        ✦ नेपाली भजन • दुवै गीतहरू ✦ English letters • चिन्ने/नचिन्ने सच्याइएको ✦
+    <!-- Stanza 2 -->
+    <div class="stanza">
+        <div class="stanza-header">२</div>
+        <div class="line">Na bhole ni bhanchan sabai le,</div>
+        <div class="line">Bol dai nayo pagal jastai.</div>
+        <div class="line">Bolau hudai hira pani,</div>
+        <div class="line">Boldai hincha pagal jastai.</div>
+        <div class="line">Rama japau deu sabai le,</div>
+        <div class="line">Sheyma jape deu,</div>
+        <div class="line">Muk lay malai pagal bhana,</div>
+        <div class="line">Man lay payro rama jape deu.</div>
     </div>
+
+    <!-- Stanza 3 -->
+    <div class="stanza">
+        <div class="stanza-header">३</div>
+        <div class="line">Haase pani bhanchhan sabai le,</div>
+        <div class="line">Haastai hidchha pagal jastai.</div>
+        <div class="line">Royapani sukha china,</div>
+        <div class="line">Royapani bhanchhan pagal jastai.</div>
+        <div class="line">Ram ko nama lay,</div>
+        <div class="line">Aunai sheyam ko namalay,</div>
+        <div class="line">Pagal jastai bhanayo,</div>
+        <div class="line">Aja malai samko namalay.</div>
+    </div>
+
+    <!-- Stanza 4 (Final) -->
+    <div class="stanza">
+        <div class="stanza-header">४</div>
+        <div class="line">Garna bhanchan garchora,</div>
+        <div class="line">Duldai hinacha pagal jastai.</div>
+        <div class="line">Jha gayo thaya bhanchan,</div>
+        <div class="line">Ayo auta pagal jastai.</div>
+        <div class="line">China sakina ni mailay,</div>
+        <div class="line">Ramlai China sakina.</div>
+        <div class="line">Duniya ko chalamala,</div>
+        <div class="line">Launa maila bujna shakina.</div>
+    </div>
+
+    <!-- Meaning Box -->
+    <div class="meaning-box">
+        <div style="text-align: center; margin-bottom: 0.8rem; font-weight: 600; color: #4d2f18;">📖 शब्द अर्थ · Key Meanings</div>
+        <div class="meaning-grid">
+            <span class="meaning-item"><strong>पागल</strong> mad/crazy</span>
+            <span class="meaning-item"><strong>चिन्ने</strong> one who knows</span>
+            <span class="meaning-item"><strong>नचिन्ने</strong> one who doesn't know</span>
+            <span class="meaning-item"><strong>राम भक्त</strong> devotee of Ram</span>
+            <span class="meaning-item"><strong>रोयापनि</strong> even when crying</span>
+            <span class="meaning-item"><strong>हासेपनि</strong> even when laughing</span>
+            <span class="meaning-item"><strong>रामलाई चिन सकिन</strong> couldn't recognize Ram</span>
+            <span class="meaning-item"><strong>दुनियाको चलमला</strong> world's deceptions</span>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <span class="small-note">🙏 चिन्नेलाई राम भक्त, नचिन्नेलाई पागल 🙏</span><br>
+        <span style="opacity:0.8;">पागल जस्तै छु म त · नेपाली भजन · ४ भजन</span>
+    </div>
+
 </div>
 </body>
 </html>
