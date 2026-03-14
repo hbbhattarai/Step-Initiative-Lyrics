@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्रीत कमला मुखमण्डल · जय जय दिव्य हरे</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f4e9d8;
+            background: linear-gradient(145deg, #fbefdb 0%, #eedcc7 100%);
+            font-family: 'Georgia', 'Times New Roman', 'Devanagari', 'Kokila', 'Sanskrit Text', serif;
+            display: flex;
+ justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .bhajan-container {
+            max-width: 820px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .card {
+            background: #fffcf2;
+            border-radius: 60px 60px 40px 40px;
+            box-shadow: 0 30px 45px rgba(110, 60, 15, 0.25);
+            border: 2px solid #ddb185;
+            padding: 2.8rem 2.2rem;
+        }
+        .title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #6b3f1b;
+            text-align: center;
+            line-height: 1.3;
+            border-bottom: 3px double #c89a62;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .title span {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #9e6c3b;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .subhead {
+            text-align: center;
+            font-size: 1.15rem;
+            background: #f8e0c0;
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #4d3118;
+            border: 1px solid #c49459;
+            letter-spacing: 0.5px;
+        }
+        .stanza {
+            margin: 2.2rem 0 2rem 0;
+            background: #fffff8;
+            border-radius: 50px 50px 30px 30px;
+            padding: 1.8rem 2.2rem 1.2rem 2.2rem;
+            box-shadow: inset 0 1px 6px #ffefda, 0 6px 10px #e1c7aa;
+            border: 1px solid #f5dbb5;
+        }
+        .stanza-header {
+            font-size: 1.25rem;
+            font-weight: 600;
+            background: #a86f3d;
+            color: white;
+            display: inline-block;
+            padding: 0.25rem 2rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+            letter-spacing: 1.5px;
+            border: 1px solid #d6974b;
+            transform: translateY(-1.2rem);
+        }
+        .line {
+            font-size: 1.35rem;
+            line-height: 2.3rem;
+            color: #2c1c0d;
+            font-weight: 450;
+            padding-left: 1rem;
+            margin-bottom: 0.25rem;
+            font-family: 'Courier New', 'Segoe UI', 'Kokila', monospace;
+            border-left: 4px solid transparent;
+            transition: 0.1s ease;
+        }
+        .line:hover {
+            border-left-color: #b46421;
+            background: #ffe6c9;
+            border-radius: 0 20px 20px 0;
+        }
+        .refrain {
+            font-size: 1.35rem;
+            color: #9b4d19;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+            padding-left: 1.6rem;
+            border-left: 8px solid #dc8b3c;
+            background: #fbebd4;
+            padding: 0.3rem 1.2rem 0.3rem 2rem;
+            border-radius: 0 40px 40px 0;
+            width: fit-content;
+            font-weight: 460;
+        }
+        .glossary-mini {
+            margin-top: 2.5rem;
+            background: #ecdbba;
+            border-radius: 40px;
+            padding: 1.5rem 2rem;
+            border: 2px solid #c9945c;
+        }
+        .glossary-mini h4 {
+            font-size: 1.5rem;
+            color: #3d2c17;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #b0763e;
+            padding-bottom: 6px;
+        }
+        .word-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.8rem;
+        }
+        .word-item {
+            background: #fef1e0;
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            border: 1px solid #c18548;
+            color: #2f1f10;
+            box-shadow: 0 2px 4px #e3c099;
+        }
+        .word-item strong {
+            color: #a1531b;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-size: 1rem;
+            color: #6b4f31;
+            border-top: 1px dashed #bc8b56;
+            padding-top: 1rem;
+            font-style: italic;
+        }
+        .sanskrit-hint {
+            font-size: 0.95rem;
+            background: #f3e1ca;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            color: #4f351d;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="bhajan-container">
+    <div class="card">
+
+        <!-- ========== TITLE ========== -->
+        <div class="title">
+            श्रीत कमला मुखमण्डल
+            <span>Shreeta Kamala Mukhamandala · जय जय दिव्य हरे</span>
+        </div>
+        <div style="text-align: center;">
+            <span class="subhead">✧  श्रीत (श्रीयुक्त) · based on your transcription  ✧</span>
+        </div>
+
+        <!-- STANZA 1 (first) -->
+        <div class="stanza">
+            <div class="stanza-header">१</div>
+            <div class="line">Shreeta kamala mukha mandala,</div>
+            <div class="line">Druta kundane.</div>
+            <div class="line">Kalita lalita vanamala,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Jaya jaya divya hare.</div>
+        </div>
+
+        <!-- STANZA 2 (repeat opening) -->
+        <div class="stanza">
+            <div class="stanza-header">२</div>
+            <div class="line">Shreeta kamala mukha mandala,</div>
+            <div class="line">Druta kundane.</div>
+            <div class="line">Kalita lalita vanamala,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Jaya jaya divya hare.</div>
+        </div>
+
+        <!-- STANZA 3 : Yadukula... -->
+        <div class="stanza">
+            <div class="stanza-header">३</div>
+            <div class="line">Yadukula nalina dinesha,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Yadukula nalina dinesha,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+        </div>
+
+        <!-- STANZA 4 : Madhu Mura... Garudasane... Sura kula -->
+        <div class="stanza">
+            <div class="stanza-header">४</div>
+            <div class="line">Madhu Mura naraka vinasana,</div>
+            <div class="line">Garudasane, Garudasane.</div>
+            <div class="line">Sura kula keli nitanta,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Jaya jaya divya hare.</div>
+        </div>
+
+        <!-- STANZA 5 : Amala kamala... Bhava mochane... Tribhuvana -->
+        <div class="stanza">
+            <div class="stanza-header">५</div>
+            <div class="line">Amala kamala tala lochana,</div>
+            <div class="line">Bhava mochane.</div>
+            <div class="line">Tribhuvana bhavana nithanta,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Jaya jaya divya hare.</div>
+        </div>
+
+        <!-- STANZA 6 : Sura kula keli nitanta (repeat) -->
+        <div class="stanza">
+            <div class="stanza-header">६</div>
+            <div class="line">Sura kula keli nitanta,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Sura kula keli nitanta,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+        </div>
+
+        <!-- STANZA 7 : Samara samita dasa kanukha ... abhinava jala dhara -->
+        <div class="stanza">
+            <div class="stanza-header">७</div>
+            <div class="line">Samara samita dasa kanukha,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Abhinava jala dhara sundara,</div>
+            <div class="line">Druta mandara he.</div>
+        </div>
+
+        <!-- STANZA 8 : Sura kula keli nitanta + jaya druta mandara he -->
+        <div class="stanza">
+            <div class="stanza-header">८</div>
+            <div class="line">Sura kula keli nitanta,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Sura kula keli nitanta,</div>
+            <div class="line">Jaya druta mandara he.</div>
+        </div>
+
+        <!-- STANZA 9 : Mujvala kitam... -->
+        <div class="stanza">
+            <div class="stanza-header">९</div>
+            <div class="line">Mujvala kitam,</div>
+            <div class="line">Jaya jaya divya hare.</div>
+            <div class="line">Mujvala kitam,</div>
+            <div class="line">Jaya jaya druta mandara he.</div>
+            <div class="refrain">Mujvala kitam, jaya jaya druta mandara he.</div>
+        </div>
+
+        <!-- SMALL GLOSSARY with key terms (श्रीत, kamala, etc.) -->
+        <div class="glossary-mini">
+            <h4>📖 शब्दार्थ · key names</h4>
+            <div class="word-grid">
+                <span class="word-item"><strong>श्रीत (Shreeta)</strong> adorned/glorious (श्रीयुक्त)</span>
+                <span class="word-item"><strong>कमला (Kamala)</strong> lotus / Lakshmi</span>
+                <span class="word-item"><strong>मुखमण्डल</strong> face (like moon)</span>
+                <span class="word-item"><strong>वनमाला</strong> forest garland</span>
+                <span class="word-item"><strong>जय जय दिव्य हरे</strong> victory to divine Hari</span>
+                <span class="word-item"><strong>यदुकुल</strong> Yadu dynasty</span>
+                <span class="word-item"><strong>मधु मुर नरक</strong> demons slain by Vishnu</span>
+                <span class="word-item"><strong>गरुडासन</strong> seated on Garuda</span>
+                <span class="word-item"><strong>अमल कमल लोचन</strong> pure lotus-eyed</span>
+                <span class="word-item"><strong>भव मोचन</strong> liberator from world</span>
+                <span class="word-item"><strong>त्रिभुवन भावन</strong> shelter of three worlds</span>
+                <span class="word-item"><strong>दृत मन्दर</strong> swift Mandara (divine)</span>
+            </div>
+            <div style="margin-top: 0.8rem; font-size: 1rem; color: #5a3d22; background: #f0ddc4; border-radius: 30px; padding: 0.3rem 1.2rem; text-align: center;">
+                ✦  as transcribed from audio — "Shreeta" corrected  ✦
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer-note">
+            श्रीत कमला मुखमण्डल · जय जय दिव्य हरे  ||  संस्कृत भजन
+        </div>
+    </div>
+</div>
+</body>
+</html>
