@@ -3,319 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step Initiative – Nepali Bhajan Collection (7 Songs)</title>
+    <title>Step Initiative · Nepali Bhajan Collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* SOLID, NO-BLINK DESIGN – clean & stable */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-        }
-
-        :root {
-            --nepali: #e84118;
-            --nepali-glow: #ff6b4a;
-            --dzongkha: #00a8ff;
-            --english: #9c88ff;
-            --bg-deep: #0a1a2f;
-            --card-bg: rgba(18, 28, 45, 0.75);
-            --text-light: #f1f2f6;
-            --text-soft: #bdc3d0;
         }
 
         body {
-            background: radial-gradient(ellipse at 30% 40%, #1b2f4b, #0b1424);
-            color: var(--text-light);
-            min-height: 100vh;
-            backdrop-filter: blur(2px);
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #121c2f;  /* deep solid base */
+            color: #eef2f6;
+            line-height: 1.5;
         }
 
-        .container {
+        /* static gradient overlay (no animations) */
+        .page-wrapper {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 30px;
+            padding: 1.8rem 2rem;
+            background: radial-gradient(circle at 80% 20%, #1f2e48, #0f172b);
+            min-height: 100vh;
         }
 
-        /* animated background orbs */
-        .bg-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            animation: orbMove 18s infinite alternate ease-in-out;
-        }
-
-        .orb1 {
-            width: 450px;
-            height: 450px;
-            background: rgba(232, 65, 24, 0.15);
-            top: -100px;
-            right: -100px;
-        }
-
-        .orb2 {
-            width: 350px;
-            height: 350px;
-            background: rgba(0, 168, 255, 0.12);
-            bottom: 20px;
-            left: -50px;
-            animation-delay: -5s;
-        }
-
-        .orb3 {
-            width: 280px;
-            height: 280px;
-            background: rgba(156, 136, 255, 0.12);
-            bottom: 30%;
-            right: 10%;
-            animation-duration: 22s;
-        }
-
-        /* header */
+        /* HEADER – solid, no movement */
         .header {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 20px 0 15px;
-            border-bottom: 1px solid rgba(255, 215, 170, 0.2);
-            flex-wrap: wrap;
+            gap: 1.2rem;
+            padding: 1.2rem 0 0.8rem;
+            border-bottom: 2px solid rgba(230, 150, 80, 0.25);
+            margin-bottom: 1.2rem;
         }
 
-        .logo-circle {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(145deg, #f6b042, #f5a623);
-            border-radius: 50%;
+        .logo-box {
+            width: 70px;
+            height: 70px;
+            background: #e67e22;
+            border-radius: 20px 8px 20px 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #0b1b2e;
-            box-shadow: 0 10px 25px rgba(255, 165, 0, 0.4);
-            border: 2px solid rgba(255, 245, 210, 0.8);
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 0 #a35112;
         }
 
-        .brand h1 {
+        .brand-text h1 {
             font-size: 2.3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ffe3b0, #ffb88c);
+            font-weight: 600;
+            background: linear-gradient(145deg, #f7b267, #f2a65a);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             letter-spacing: -0.5px;
         }
 
-        .brand p {
-            color: #aab3c5;
-            font-size: 1.05rem;
+        .brand-text p {
+            color: #b4bfd0;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.6rem;
         }
 
-        .brand p i {
-            color: #ffb142;
+        .brand-text p i {
+            color: #e67e22;
         }
 
-        /* hero */
-        .hero-modern {
+        /* HERO – flat, attractive, no animation */
+        .hero-panel {
+            background: rgba(10, 18, 30, 0.8);
+            border-radius: 40px;
+            padding: 3rem 2rem;
+            margin: 2rem 0 2.5rem;
             text-align: center;
-            padding: 70px 25px;
-            margin: 40px 0 30px;
-            background: rgba(5, 15, 28, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 60px 60px 30px 30px;
-            border: 1px solid rgba(255, 180, 100, 0.25);
-            box-shadow: 0 25px 45px -15px #00000080;
+            border: 1px solid #d98c4a30;
+            box-shadow: 0 20px 25px -10px #00000080;
         }
 
-        .hero-modern h2 {
-            font-size: 3.2rem;
+        .hero-panel h2 {
+            font-size: 3rem;
             font-weight: 700;
-            background: linear-gradient(to right, #ffcba4, #ff9f7c, #bca3ff);
+            background: linear-gradient(to right, #ffc6a0, #ffab73, #d9b48f);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1.2;
         }
 
-        .hero-modern p {
-            max-width: 700px;
-            margin: 20px auto 30px;
-            color: #cdd6e6;
-            font-size: 1.2rem;
+        .hero-panel p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 1.2rem auto;
+            color: #cbd2e0;
         }
 
-        .button-group {
+        .button-row {
             display: flex;
-            gap: 18px;
+            gap: 1.2rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 1.8rem;
         }
 
-        .pill-btn {
+        .solid-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 34px;
+            gap: 0.7rem;
+            padding: 0.9rem 2.2rem;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             text-decoration: none;
-            transition: 0.25s;
-            border: 1px solid rgba(255,255,255,0.15);
-            backdrop-filter: blur(5px);
+            color: white;
+            border: none;
+            box-shadow: 0 6px 0 #00000040;
+            transition: 0.1s ease;
         }
 
-        .pill-btn i {
-            font-size: 1.2rem;
+        .solid-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #00000060;
         }
 
-        .pill-btn.nepali {
-            background: linear-gradient(145deg, #e84118, #b73c1a);
-            color: white;
-            box-shadow: 0 10px 18px #e8411840;
+        .nepali-solid {
+            background: #c44513;
+            background: linear-gradient(145deg, #d35400, #b6490c);
         }
-        .pill-btn.dzongkha {
-            background: linear-gradient(145deg, #00a8ff, #0077b3);
-            color: white;
+        .dzongkha-solid {
+            background: #1f618d;
+            background: linear-gradient(145deg, #2980b9, #1f5b87);
         }
-        .pill-btn.english {
-            background: linear-gradient(145deg, #9c88ff, #6b57c7);
-            color: white;
-        }
-        .pill-btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            filter: brightness(1.15);
+        .english-solid {
+            background: #5e4fa2;
+            background: linear-gradient(145deg, #6c5fb0, #4e4091);
         }
 
-        /* section headers */
-        .section-header {
+        /* SECTION TITLES */
+        .section-title {
             display: flex;
             align-items: center;
-            gap: 18px;
-            margin: 60px 0 35px;
+            gap: 1rem;
+            margin: 3rem 0 2rem;
         }
 
-        .icon-ring {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: rgba(20, 30, 45, 0.8);
-            backdrop-filter: blur(6px);
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: #1f2c3f;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            border: 2px solid;
-            box-shadow: 0 0 30px currentColor;
+            font-size: 1.8rem;
+            border-left: 4px solid #e67e22;
+            color: #eaa45a;
         }
 
-        .nepali-ring {
-            border-color: #e84118;
-            color: #ff7b4a;
-        }
-        .dzongkha-ring {
-            border-color: #00a8ff;
-            color: #5dbcd2;
-        }
-        .english-ring {
-            border-color: #9c88ff;
-            color: #c3b3ff;
+        .section-title h2 {
+            font-size: 2.1rem;
+            font-weight: 550;
         }
 
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-        }
-
-        .song-grid {
+        /* GRID – clean card grid */
+        .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        /* card – upgraded with glassmorphism */
-        .song-card {
-            background: rgba(12, 22, 35, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 200, 140, 0.18);
-            border-radius: 32px;
+        /* CARD – completely stable, no hover scaling, just subtle color shift */
+        .bhajan-card {
+            background: #18273f;
+            border-radius: 28px;
+            border: 1px solid #cf9f6e40;
+            box-shadow: 0 15px 20px -10px #04080e;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
-            box-shadow: 0 20px 35px -15px #000000b3;
             display: flex;
             flex-direction: column;
+            transition: 0.1s ease;
         }
 
-        .song-card:hover {
-            transform: translateY(-10px) scale(1.01);
-            border-color: rgba(255, 140, 60, 0.5);
-            box-shadow: 0 30px 45px -12px #e8411860;
+        .bhajan-card:hover {
+            background: #1e314b;
+            border-color: #cf8f4f80;
         }
 
-        .card-preview {
-            height: 150px;
-            background: linear-gradient(145deg, #261f2e, #1c1a2a);
+        .card-top {
+            height: 130px;
+            background: #2a2f45;
+            background: linear-gradient(130deg, #24344b, #1a263a);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            color: rgba(255, 220, 150, 0.7);
             font-size: 3rem;
-        }
-
-        .card-preview i {
-            filter: drop-shadow(0 0 15px #ff914d);
-        }
-
-        .card-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(232, 65, 24, 0.85);
-            backdrop-filter: blur(4px);
-            padding: 6px 18px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: white;
-            border: 1px solid rgba(255,215,0,0.4);
+            color: #eaa766;
+            border-bottom: 1px solid #d78b4b40;
         }
 
         .card-content {
-            padding: 22px 22px 28px;
+            padding: 1.8rem 1.5rem 2rem;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
         .card-content h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 600;
             line-height: 1.3;
-            color: #ffebd2;
+            color: #ffdbb5;
         }
 
-        .artist-line {
+        .artist-row {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin: 8px 0 12px;
-            color: #b9c2d4;
+            gap: 0.4rem;
+            margin: 0.4rem 0 0.8rem;
+            color: #acbfda;
+            font-size: 1rem;
         }
 
-        .artist-line i {
-            color: #e88d4d;
+        .artist-row i {
+            color: #e6843a;
         }
 
-        .desc-text {
+        .desc {
+            color: #cbd5e6;
             font-size: 0.95rem;
-            color: #cdd2de;
-            margin-bottom: 25px;
+            margin-bottom: 1.8rem;
             line-height: 1.5;
             flex: 1;
         }
@@ -324,263 +244,240 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: auto;
+            margin-top: 0.2rem;
         }
 
-        .lyric-link {
-            background: rgba(232, 65, 24, 0.2);
-            padding: 10px 22px;
-            border-radius: 40px;
+        .lyric-btn {
+            background: #c86024;
             color: white;
             text-decoration: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
             font-weight: 500;
-            transition: 0.2s;
-            border: 1px solid #e8411860;
-            backdrop-filter: blur(4px);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
+            border: none;
+            box-shadow: 0 4px 0 #844018;
+            transition: 0.05s linear;
         }
 
-        .lyric-link:hover {
-            background: #e84118;
-            border-color: #ffb27e;
-            box-shadow: 0 5px 15px #e84118b0;
+        .lyric-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #844018;
         }
 
-        .extra-icon {
-            color: #ffba7a;
-            font-size: 1.2rem;
+        .badge-num {
+            background: #d97c33;
+            border-radius: 30px;
+            padding: 0.2rem 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
-        /* subtle divider */
-        .divider-light {
-            margin: 40px 0 10px;
+        /* Dzongkha & english cards different accent */
+        .dzongkha-card .lyric-btn { background: #1d6f9e; box-shadow: 0 4px 0 #0f4060; }
+        .english-card .lyric-btn { background: #6754b2; box-shadow: 0 4px 0 #3f327a; }
+
+        .divider-stable {
+            height: 2px;
+            background: linear-gradient(90deg, #d9914a30, #d9914a, #d9914a30);
             border: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,140,60,0.4), transparent);
+            margin: 2.2rem 0 1rem;
         }
 
-        /* footer */
-        .footer-note {
+        .footer {
             text-align: center;
-            margin: 70px 0 20px;
-            padding: 25px;
-            border-top: 1px solid rgba(255,180,100,0.2);
-            color: #9aa3b5;
+            margin-top: 4rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #d48d4d30;
+            color: #a6b3cc;
         }
 
-        @keyframes orbMove {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(5%, 8%) scale(1.1); }
-        }
-
-        @media (max-width: 700px) {
-            .hero-modern h2 { font-size: 2.4rem; }
-        }
+        /* no animations, no keyframes, no blinking */
     </style>
 </head>
 <body>
+<div class="page-wrapper">
 
-<div class="bg-orb orb1"></div>
-<div class="bg-orb orb2"></div>
-<div class="bg-orb orb3"></div>
-
-<div class="container">
-
-    <!-- header -->
+    <!-- header - static -->
     <div class="header">
-        <div class="logo-circle">
+        <div class="logo-box">
             <i class="fas fa-step-forward"></i>
         </div>
-        <div class="brand">
+        <div class="brand-text">
             <h1>Step Initiative · भजन संग्रह</h1>
-            <p><i class="fas fa-om"></i> 7 divine Nepali bhajans – devotion meets melody</p>
+            <p><i class="fas fa-om"></i> सात नेपाली भजन · स्थिर, सरल, भक्तिमय</p>
         </div>
     </div>
 
-    <!-- hero -->
-    <div class="hero-modern">
-        <h2>आध्यात्मिक संगीतको यात्रा</h2>
-        <p>Discover sacred Nepali bhajans, from timeless aartis to heartfelt prayers. Each song carries the essence of devotion.</p>
-        <div class="button-group">
-            <a href="#nepali-songs" class="pill-btn nepali"><i class="fas fa-pray"></i> Nepali (७ भजन)</a>
-            <a href="#dzongkha" class="pill-btn dzongkha"><i class="fas fa-mountain"></i> Dzongkha</a>
-            <a href="#english" class="pill-btn english"><i class="fas fa-headphones"></i> English</a>
+    <!-- hero panel - no movement -->
+    <div class="hero-panel">
+        <h2>आरती · पागल · दर्शन</h2>
+        <p>7 divine Nepali bhajans with lyrics in English letters. Clean, fast, and easy to read.</p>
+        <div class="button-row">
+            <a href="#nepali" class="solid-btn nepali-solid"><i class="fas fa-pray"></i> Nepali (७ भजन)</a>
+            <a href="#dzongkha" class="solid-btn dzongkha-solid"><i class="fas fa-mountain"></i> Dzongkha</a>
+            <a href="#english" class="solid-btn english-solid"><i class="fas fa-globe"></i> English</a>
         </div>
     </div>
 
-    <!-- NEPALI SECTION – now with song1 ... song7 -->
-    <section id="nepali-songs">
-        <div class="section-header">
-            <div class="icon-ring nepali-ring"><i class="fas fa-praying-hands"></i></div>
-            <h2>नेपाली भजन · ७ गीतहरू</h2>
-        </div>
-
-        <div class="song-grid">
-
-            <!-- SONG 1: Anjali Jali Jali (as before) -->
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-leaf"></i></div>
-                <div class="card-content">
-                    <h3>अञ्जली जाली जाली</h3>
-                    <div class="artist-line"><i class="fas fa-user"></i> Monika Sharma</div>
-                    <p class="desc-text">Traditional Nepali wedding song, full of blessings and cultural grace.</p>
-                    <div class="card-footer">
-                        <a href="Nepali/song1.html" class="lyric-link"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-feather-alt"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge">भजन १</div>
-            </div>
-
-            <!-- SONG 2: Hridhya Ma Krishna Ko Photo Chha -->
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-krishna"></i></div>
-                <div class="card-content">
-                    <h3>हृदयमा कृष्णको फोटो छ</h3>
-                    <div class="artist-line"><i class="fas fa-user"></i> Nepali Bhajan</div>
-                    <p class="desc-text">A soulful Krishna bhajan – the lord resides in the heart.</p>
-                    <div class="card-footer">
-                        <a href="Nepali/song2.html" class="lyric-link"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-flower"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge">भजन २</div>
-            </div>
-
-            <!-- SONG 3: हुन्न धर्म बा आमा भुलेर (Durga Oli) – already present -->
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-home"></i></div>
-                <div class="card-content">
-                    <h3>हुन्न धर्म बा आमा भुलेर</h3>
-                    <div class="artist-line"><i class="fas fa-user"></i> Durga Oli</div>
-                    <p class="desc-text">"It's not right to roam temples, forgetting the gods at home, mother and father."</p>
-                    <div class="card-footer">
-                        <a href="Nepali/song3.html" class="lyric-link"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-hands"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge">भजन ३</div>
-            </div>
-
-            <!-- SONG 4: मिलिजुली गाउँ अरती हरिको (the collective aarti) -->
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-fire"></i></div>
-                <div class="card-content">
-                    <h3>मिलिजुली गाउँ अरती हरिको</h3>
-                    <div class="artist-line"><i class="fas fa-users"></i> Traditional Aarti</div>
-                    <p class="desc-text">Beloved aarti sung together in praise of Lord Hari. (English letters)</p>
-                    <div class="card-footer">
-                        <a href="Nepali/song4.html" class="lyric-link"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-lightbulb"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge">भजन ४</div>
-            </div>
-
-            <!-- SONG 5: पागल जस्तै छु म त (चिन्ने / नचिन्ने) – corrected version -->
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-heart"></i></div>
-                <div class="card-content">
-                    <h3>पागल जस्तै छु म त</h3>
-                    <div class="artist-line"><i class="fas fa-user"></i> Gopal Yonjan / Gopal Basnet</div>
-                    <p class="desc-text">चिन्नेलाई राम भक्त, नचिन्नेलाई पागल – famous mad devotee bhajan.</p>
-                    <div class="card-footer">
-                        <a href="Nepali/song5.html" class="lyric-link"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-smile"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge">भजन ५</div>
-            </div>
-
-            <!-- SONG 6: श्रीत कमला मुखमण्डल (जय जय दिव्य हरे) -->
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-lotus"></i></div>
-                <div class="card-content">
-                    <h3>श्रीत कमला मुखमण्डल</h3>
-                    <div class="artist-line"><i class="fas fa-user"></i> Traditional Sanskrit Stuti</div>
-                    <p class="desc-text">"Shreeta Kamala Mukhamandala" – divine hymn to Lord Vishnu/Hari. (Jaya Jaya Divya Hare)</p>
-                    <div class="card-footer">
-                        <a href="Nepali/song6.html" class="lyric-link"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-om"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge">भजन ६</div>
-            </div>
-
-            <!-- SONG 7: दर्शन देऊ मलाई (राजु अधिकारी) -->
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-hand-sparkles"></i></div>
-                <div class="card-content">
-                    <h3>दर्शन देऊ मलाई</h3>
-                    <div class="artist-line"><i class="fas fa-user"></i> Raju Adhikari</div>
-                    <p class="desc-text">Popular Mata bhajan – "Deu malai gyan ko dhana, maksu yahi varadana."</p>
-                    <div class="card-footer">
-                        <a href="Nepali/song7.html" class="lyric-link"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-crown"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge">भजन ७</div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider-light">
-
-    <!-- DZONGKHA SECTION (unchanged structure, but with more appeal) -->
-    <section class="section" id="dzongkha">
-        <div class="section-header">
-            <div class="icon-ring dzongkha-ring"><i class="fas fa-mountain"></i></div>
-            <h2>Dzongkha · རྫོང་ཁ་གླུ་གཞས</h2>
-        </div>
-        <div class="song-grid">
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-dragon"></i></div>
-                <div class="card-content">
-                    <h3>Wongdo Wongdo</h3>
-                    <div class="artist-line"><i class="fas fa-user"></i> Bhutanese Pop</div>
-                    <p class="desc-text">Traditional Dzongkha melodies that echo from the Himalayas.</p>
-                    <div class="card-footer">
-                        <a href="Dzongkha/song1.html" class="lyric-link" style="background: #00a8ff20; border-color:#00a8ff"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-dragon"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge" style="background:#00a8ffcc;">རྫོང་ཁ</div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider-light">
-
-    <!-- ENGLISH SECTION (refreshed card) -->
-    <section class="section" id="english">
-        <div class="section-header">
-            <div class="icon-ring english-ring"><i class="fas fa-globe"></i></div>
-            <h2>English · Global</h2>
-        </div>
-        <div class="song-grid">
-            <div class="song-card">
-                <div class="card-preview"><i class="fas fa-guitar"></i></div>
-                <div class="card-content">
-                    <h3>Classic Rock Hits</h3>
-                    <div class="artist-line"><i class="fas fa-user"></i> Various Artists</div>
-                    <p class="desc-text">Timeless English rock anthems from the golden era.</p>
-                    <div class="card-footer">
-                        <a href="English/song1.html" class="lyric-link" style="background:#9c88ff30; border-color:#9c88ff"><i class="fas fa-book-open"></i> Lyrics</a>
-                        <span class="extra-icon"><i class="fas fa-music"></i></span>
-                    </div>
-                </div>
-                <div class="card-badge" style="background:#6b57c7cc;">ROCK</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER with step initiative vibe -->
-    <div class="footer-note">
-        <i class="fas fa-feather-alt"></i> Step Initiative · 7 Nepali Bhajans <i class="fas fa-feather-alt"></i><br>
-        <span style="font-size:0.9rem;">Devotional lyrics in English letters · आरती, पागल, दर्शन देऊ, श्रीत कमला, मिलिजुली …</span>
+    <!-- NEPALI SECTION (7 songs) -->
+    <div class="section-title" id="nepali">
+        <div class="section-icon"><i class="fas fa-praying-hands"></i></div>
+        <h2>नेपाली भजन · ७ गीत</h2>
     </div>
-</div> <!-- container -->
+
+    <div class="card-grid">
+        <!-- 1. Anjali Jali Jali -->
+        <div class="bhajan-card">
+            <div class="card-top"><i class="fas fa-leaf"></i></div>
+            <div class="card-content">
+                <h3>अञ्जली जाली जाली</h3>
+                <div class="artist-row"><i class="fas fa-user"></i> Monika Sharma</div>
+                <p class="desc">Traditional Nepali wedding song, blessings and grace.</p>
+                <div class="card-footer">
+                    <a href="Nepali/song1.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">भजन १</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Hridhya Ma Krishna -->
+        <div class="bhajan-card">
+            <div class="card-top"><i class="fas fa-krishna"></i></div>
+            <div class="card-content">
+                <h3>हृदयमा कृष्णको फोटो</h3>
+                <div class="artist-row"><i class="fas fa-user"></i> Nepali Bhajan</div>
+                <p class="desc">Krishna bhajan – the lord resides in the heart.</p>
+                <div class="card-footer">
+                    <a href="Nepali/song2.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">भजन २</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. हुन्न धर्म बा आमा भुलेर (Durga Oli) -->
+        <div class="bhajan-card">
+            <div class="card-top"><i class="fas fa-home"></i></div>
+            <div class="card-content">
+                <h3>हुन्न धर्म बा आमा भुलेर</h3>
+                <div class="artist-row"><i class="fas fa-user"></i> Durga Oli</div>
+                <p class="desc">"Not right to roam temples, forgetting mother & father."</p>
+                <div class="card-footer">
+                    <a href="Nepali/song3.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">भजन ३</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. मिलिजुली गाउँ अरती हरिको -->
+        <div class="bhajan-card">
+            <div class="card-top"><i class="fas fa-fire"></i></div>
+            <div class="card-content">
+                <h3>मिलिजुली गाउँ अरती</h3>
+                <div class="artist-row"><i class="fas fa-users"></i> Traditional Aarti</div>
+                <p class="desc">Beloved aarti sung together in praise of Lord Hari.</p>
+                <div class="card-footer">
+                    <a href="Nepali/song4.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">भजन ४</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. पागल जस्तै छु म त (चिन्ने/नचिन्ने) -->
+        <div class="bhajan-card">
+            <div class="card-top"><i class="fas fa-heart"></i></div>
+            <div class="card-content">
+                <h3>पागल जस्तै छु म त</h3>
+                <div class="artist-row"><i class="fas fa-user"></i> Gopal Yonjan</div>
+                <p class="desc">चिन्नेलाई राम भक्त, नचिन्नेलाई पागल – mad devotee.</p>
+                <div class="card-footer">
+                    <a href="Nepali/song5.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">भजन ५</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. श्रीत कमला मुखमण्डल (Jaya Jaya Divya Hare) -->
+        <div class="bhajan-card">
+            <div class="card-top"><i class="fas fa-lotus"></i></div>
+            <div class="card-content">
+                <h3>श्रीत कमला मुखमण्डल</h3>
+                <div class="artist-row"><i class="fas fa-user"></i> Sanskrit Stuti</div>
+                <p class="desc">"Shreeta Kamala Mukhamandala" – Vishnu hymn, Jaya Jaya Divya Hare.</p>
+                <div class="card-footer">
+                    <a href="Nepali/song6.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">भजन ६</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. दर्शन देऊ मलाई (Raju Adhikari) -->
+        <div class="bhajan-card">
+            <div class="card-top"><i class="fas fa-hand-sparkles"></i></div>
+            <div class="card-content">
+                <h3>दर्शन देऊ मलाई</h3>
+                <div class="artist-row"><i class="fas fa-user"></i> Raju Adhikari</div>
+                <p class="desc">"Deu malai gyan ko dhana, maksu yahi varadana" – Mata bhajan.</p>
+                <div class="card-footer">
+                    <a href="Nepali/song7.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">भजन ७</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider-stable">
+
+    <!-- DZONGKHA section (simple, 1 card) -->
+    <div class="section-title" id="dzongkha">
+        <div class="section-icon"><i class="fas fa-mountain"></i></div>
+        <h2>Dzongkha · རྫོང་ཁ</h2>
+    </div>
+    <div class="card-grid">
+        <div class="bhajan-card dzongkha-card">
+            <div class="card-top"><i class="fas fa-dragon"></i></div>
+            <div class="card-content">
+                <h3>Wongdo Wongdo</h3>
+                <div class="artist-row"><i class="fas fa-user"></i> Bhutanese Pop</div>
+                <p class="desc">Traditional Dzongkha melodies from the Himalayas.</p>
+                <div class="card-footer">
+                    <a href="Dzongkha/song1.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">རྫོང་ཁ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider-stable">
+
+    <!-- ENGLISH section -->
+    <div class="section-title" id="english">
+        <div class="section-icon"><i class="fas fa-globe"></i></div>
+        <h2>English · Global</h2>
+    </div>
+    <div class="card-grid">
+        <div class="bhajan-card english-card">
+            <div class="card-top"><i class="fas fa-guitar"></i></div>
+            <div class="card-content">
+                <h3>Classic Rock Hits</h3>
+                <div class="artist-row"><i class="fas fa-user"></i> Various Artists</div>
+                <p class="desc">Timeless English rock anthems from the golden era.</p>
+                <div class="card-footer">
+                    <a href="English/song1.html" class="lyric-btn"><i class="fas fa-book-open"></i> Lyrics</a>
+                    <span class="badge-num">ROCK</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER (static) -->
+    <div class="footer">
+        <i class="fas fa-feather"></i> Step Initiative · 7 Nepali Bhajans · lyrics in English letters
+        <div style="font-size:0.9rem; color:#9faec5; margin-top:0.3rem;">आरती, पागल, दर्शन देऊ, श्रीत कमला, मिलिजुली …</div>
+    </div>
+
+</div> <!-- page-wrapper -->
 </body>
 </html>
